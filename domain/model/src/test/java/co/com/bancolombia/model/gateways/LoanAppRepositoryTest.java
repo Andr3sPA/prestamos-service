@@ -1,7 +1,7 @@
 package co.com.bancolombia.model.gateways;
 
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.model.dto.LoanApplicationRequest;
+import co.com.bancolombia.dto.LoanApplicationRequest;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Mono;
 import static org.junit.jupiter.api.Assertions.*;
