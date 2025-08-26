@@ -2,7 +2,6 @@ package co.com.bancolombia.r2dbc;
 
 
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.model.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.gateways.LoanAppRepository;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
 import co.com.bancolombia.r2dbc.mapper.LoanTypeMapper;
@@ -22,10 +21,10 @@ public class LoanAppRepositoryAdapter implements LoanAppRepository {
     private final StateMapper stateMapper;
 
     @Override
-    public Mono<LoanApplication> register(LoanApplicationRequest loanApp) {
+    public Mono<LoanApplication> register(LoanApplication loanApp) {
         return Mono.zip(
-                repoState.findById(loanApp.getStateId()),
-                repoLoanType.findById(loanApp.getLoanTypeId())
+                repoState.findById(loanApp.getState().getId()),
+                repoLoanType.findById(loanApp.getLoanType().getId())
         ).flatMap(tuple -> {
             var state = stateMapper.toModel(tuple.getT1());
             var loanType = loanTypeMapper.toModel(tuple.getT2());

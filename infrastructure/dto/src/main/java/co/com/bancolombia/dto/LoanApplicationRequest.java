@@ -1,4 +1,4 @@
-package co.com.bancolombia.model.dto;
+package co.com.bancolombia.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

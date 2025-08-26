@@ -1,13 +1,31 @@
 package co.com.bancolombia.api;
 
+
 import co.com.bancolombia.api.config.LoanAppPath;
-import lombok.RequiredArgsConstructor;
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.dto.LoanApplicationRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springdoc.core.annotations.RouterOperation;
+import org.springdoc.core.annotations.RouterOperations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.*;
+import lombok.RequiredArgsConstructor;
+
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
+import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+
+import lombok.RequiredArgsConstructor;
+
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
@@ -17,23 +35,38 @@ public class RouterRest {
     private final LoanAppPath loanAppPath;
 
     @Bean
-    @RouterOperation(
-            path = "/api/v1/solicitud",
-            produces = { MediaType.APPLICATION_JSON_VALUE },
-            method = RequestMethod.POST,
-            beanClass = HandlerLoanApp.class,
-            beanMethod = "saveLoanApp",
-            operation = @Operation(
-                    operationId = "saveLoanApp",
-                    summary = "Crear solicitud de préstamo",
-                    description = "Crea una nueva solicitud de préstamo en el sistema",
-                    responses = {
-                            @ApiResponse(responseCode = "200", description = "Solicitud creada"),
-                            @ApiResponse(responseCode = "400", description = "Datos inválidos")
-                    }
+    @RouterOperations({
+            @RouterOperation(
+                    path = "/api/v1/solicitud",
+                    produces = { MediaType.APPLICATION_JSON_VALUE },
+                    method = RequestMethod.POST,
+                    beanClass = HandlerLoanApp.class,
+                    beanMethod = "saveLoanApp",
+                    operation = @Operation(
+                            operationId = "saveLoanApp",
+                            summary = "Crear solicitud de préstamo",
+                            description = "Crea una nueva solicitud de préstamo en el sistema",
+                            requestBody = @RequestBody(
+                                    required = true,
+                                    content = @Content(
+                                            schema = @Schema(implementation = LoanApplicationRequest.class)
+                                    )
+                            ),
+                            responses = {
+                                    @ApiResponse(
+                                            responseCode = "200",
+                                            description = "Solicitud creada correctamente",
+                                            content = @Content(
+                                                    schema = @Schema(implementation = LoanApplication.class)
+                                            )
+                                    ),
+                                    @ApiResponse(responseCode = "400", description = "Datos inválidos")
+                            }
+                    )
             )
-    )
+    })
     public RouterFunction<ServerResponse> routerFunction(HandlerLoanApp handlerLoanApp) {
         return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp);
     }
 }
+
