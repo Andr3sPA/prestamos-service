@@ -1,10 +1,15 @@
 package co.com.bancolombia.model.gateways;
 
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.dto.LoanApplicationRequest;
 import org.junit.jupiter.api.Test;
-
 class LoanAppRepositoryTest {
     @Test
     void testRegisterMethodSignature() {
-        // Test vacío para evitar error de compilación
+        LoanAppRepository repo = (loanApp) -> Mono.just(new LoanApplication());
+        LoanApplicationRequest request = new LoanApplicationRequest();
+        Mono<LoanApplication> result = repo.register(request);
+        assertNotNull(result);
+        assertNotNull(result.block());
     }
 }

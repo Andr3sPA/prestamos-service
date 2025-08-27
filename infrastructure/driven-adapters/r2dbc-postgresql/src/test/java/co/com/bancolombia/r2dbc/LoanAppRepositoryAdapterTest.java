@@ -1,6 +1,7 @@
 package co.com.bancolombia.r2dbc;
 
 import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
 import co.com.bancolombia.r2dbc.mapper.LoanTypeMapper;
 import co.com.bancolombia.r2dbc.mapper.StateMapper;

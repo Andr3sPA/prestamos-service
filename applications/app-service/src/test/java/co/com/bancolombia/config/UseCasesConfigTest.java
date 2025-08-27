@@ -39,8 +39,8 @@ public class UseCasesConfigTest {
         }
 
         @Bean
-        public UserRepository userRepository() {
-            return Mockito.mock(UserRepository.class);
+        public LoanAppRepository loanAppRepository() {
+            return Mockito.mock(LoanAppRepository.class);
         }
     }
 
