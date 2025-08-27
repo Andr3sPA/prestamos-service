@@ -3,6 +3,7 @@ package co.com.bancolombia.api;
 import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
