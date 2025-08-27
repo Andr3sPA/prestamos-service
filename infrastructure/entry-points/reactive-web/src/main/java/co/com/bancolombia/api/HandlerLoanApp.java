@@ -1,7 +1,8 @@
 package co.com.bancolombia.api;
 
+import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.model.dto.LoanApplicationRequest;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -13,12 +14,17 @@ import reactor.core.publisher.Mono;
 @Component
 @RequiredArgsConstructor
 public class HandlerLoanApp {
+
     private final LoanAppUseCase loanAppCase;
-    public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest){
-        Mono<LoanApplicationRequest> incomingObject=serverRequest.bodyToMono(LoanApplicationRequest.class);
-        return incomingObject.flatMap(object->ServerResponse
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(loanAppCase.saveLoanApp(object),Object.class));
+    private final LoanApplicationRequestMapper requestMapper;
+
+    public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {
+        return serverRequest.bodyToMono(LoanApplicationRequest.class)
+                .map(requestMapper::toModel)
+                .flatMap(loanAppCase::saveLoanApp)
+                .flatMap(result -> ServerResponse
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(result));
     }
 }

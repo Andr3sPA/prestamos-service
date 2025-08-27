@@ -5,6 +5,6 @@ import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 
-public interface LoanAppReactiveRepository extends ReactiveCrudRepository<LoanApplicationEntity, String>, ReactiveQueryByExampleExecutor<LoanApplicationEntity> {
+public interface LoanAppReactiveRepository extends ReactiveCrudRepository<LoanApplicationEntity, Long>, ReactiveQueryByExampleExecutor<LoanApplicationEntity> {
     Mono<LoanApplicationEntity> save(LoanApplication loanApp);
 }

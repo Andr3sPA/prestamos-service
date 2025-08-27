@@ -1,7 +1,6 @@
 package co.com.bancolombia.usecase.loanApplication;
 
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.model.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.gateways.LoanAppRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,6 @@ class LoanAppUseCaseTest {
 
     @Test
     void testSaveLoanApp() {
-        LoanApplicationRequest request = new LoanApplicationRequest();
         LoanApplication loanApp = new LoanApplication();
         when(loanAppRepository.register(request)).thenReturn(Mono.just(loanApp));
         Mono<LoanApplication> result = useCase.saveLoanApp(request);

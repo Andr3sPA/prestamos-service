@@ -25,4 +25,4 @@ project(':reactive-web').projectDir = file('./infrastructure/entry-points/reacti
 include ':r2dbc-postgresql'
 project(':r2dbc-postgresql').projectDir = file('./infrastructure/driven-adapters/r2dbc-postgresql')
 include ':dto'
-project(':dto').projectDir = file('./infrastructure/dto')
+project(':dto').projectDir = file('./domain/dto')

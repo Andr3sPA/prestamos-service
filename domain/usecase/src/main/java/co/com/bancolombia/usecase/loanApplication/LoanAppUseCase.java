@@ -1,7 +1,6 @@
 package co.com.bancolombia.usecase.loanApplication;
 
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.gateways.LoanAppRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;

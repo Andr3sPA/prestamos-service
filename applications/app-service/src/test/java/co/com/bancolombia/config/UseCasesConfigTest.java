@@ -38,9 +38,6 @@ public class UseCasesConfigTest {
         }
 
         @Bean
-        public TaskRepository taskRepository() {
-            return Mockito.mock(TaskRepository.class);
-        }
     }
 
     static class MyUseCase {
