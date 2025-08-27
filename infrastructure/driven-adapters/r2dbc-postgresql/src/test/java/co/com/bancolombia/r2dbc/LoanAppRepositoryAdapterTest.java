@@ -47,8 +47,6 @@ class LoanAppRepositoryAdapterTest {
 
 
     // Usar Long para los IDs
-    Long stateId = 1L;
-    Long loanTypeId = 2L;
     co.com.bancolombia.r2dbc.entity.StateEntity stateEntity = mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
     co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity = mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
     co.com.bancolombia.model.State stateModel = mock(co.com.bancolombia.model.State.class);

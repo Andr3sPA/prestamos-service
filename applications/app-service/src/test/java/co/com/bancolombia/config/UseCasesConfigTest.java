@@ -1,5 +1,6 @@
 package co.com.bancolombia.config;
 
+import co.com.bancolombia.model.gateways.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -38,6 +39,9 @@ public class UseCasesConfigTest {
         }
 
         @Bean
+        public UserRepository userRepository() {
+            return Mockito.mock(UserRepository.class);
+        }
     }
 
     static class MyUseCase {

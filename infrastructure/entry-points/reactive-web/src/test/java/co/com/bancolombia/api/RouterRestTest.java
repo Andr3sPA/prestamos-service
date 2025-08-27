@@ -1,25 +1,27 @@
 package co.com.bancolombia.api;
 
-import co.com.bancolombia.model.Priority;
-import co.com.bancolombia.usecase.task.TaskUseCase;
+import co.com.bancolombia.api.config.LoanAppPath;
+import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.model.LoanType;
+import co.com.bancolombia.model.State;
+import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@ContextConfiguration(classes = {RouterRest.class, Handler.class})
-@EnableConfigurationProperties(TaskPath.class)
+@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
+@EnableConfigurationProperties(LoanAppPath.class)
 @WebFluxTest
 class RouterRestTest {
 
@@ -27,115 +29,77 @@ class RouterRestTest {
     private WebTestClient webTestClient;
 
     @MockitoBean
-    private TaskUseCase taskUseCase;
-
-    private final String tasks = "/api/v1/tasks";
-    private final String tasksById = "/api/v1/tasks";
-
-    private final Task taskOne = Task.builder()
-            .id("1")
-            .title("Task 1")
-            .description("Description")
-            .priority(Priority.LOW)
-            .completed(false)
-            .build();
-
-    private final Task taskTwo = Task.builder()
-            .id("2")
-            .title("Task 2")
-            .description("Description")
-            .priority(Priority.LOW)
-            .completed(false)
-            .build();
+    private LoanAppUseCase loanAppUseCase;
 
     @Autowired
-    private TaskPath taskPath;
+    private LoanAppPath loanAppPath;
+
+    private final LoanApplicationRequest request = LoanApplicationRequest.builder()
+            .amount(BigDecimal.valueOf(5000))
+            .term(12)
+            .email("client1@example.com")
+            .stateId(1L)
+            .loanTypeId(1L)
+            .build();
+
+    private final LoanApplication responseLoan = LoanApplication.builder()
+            .id(1L)
+            .amount(BigDecimal.valueOf(5000))
+            .term(12)
+            .email("client1@example.com")
+            .state(State.builder()
+                    .id(1L)
+                    .name("PENDING")
+                    .description("Solicitud pendiente")
+                    .build())
+            .loanType(LoanType.builder()
+                    .id(1L)
+                    .name("PERSONAL")
+                    .minimumAmount(BigDecimal.valueOf(1000))
+                    .maximumAmount(BigDecimal.valueOf(10000))
+                    .interestRate(BigDecimal.valueOf(0.05))
+                    .automaticValidation(true)
+                    .build())
+            .build();
 
     @Test
-    void shouldLoadTaskPathProperties() {
-        assertEquals("/api/v1/tasks", taskPath.getTasks());
-        assertEquals("/api/v1/tasks/{id}", taskPath.getTasksById());
-    }
+    void shouldCreateLoanApplication() {
 
-    @Test
-    void shouldGetAllTasks() {
 
-        when(taskUseCase.getAllTasks()).thenReturn(Flux.just(taskOne, taskTwo));
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class)))
+                .thenReturn(Mono.just(responseLoan));
 
-        webTestClient.get()
-                .uri(tasks)
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Task.class)
-                .hasSize(2)
-                .value(tasks -> {
-                    Assertions.assertThat(tasks).isNotEmpty();
-                    Assertions.assertThat(tasks.get(0).getId()).isEqualTo("1");
-                });
-
-    }
-
-    @Test
-    void shouldGetTaskById() {
-        String id = "1";
-
-        when(taskUseCase.getTaskById(id)).thenReturn(Mono.just(taskOne));
-
-        webTestClient.get()
-                .uri(tasks + "/" + id)
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(Task.class)
-                .value(response -> Assertions.assertThat(response.getId()).isEqualTo(id));
-    }
-
-    @Test
-    void shouldPostSaveTask() {
-
-        when(taskUseCase.saveTask(any(Task.class))).thenReturn(Mono.just(taskOne));
 
         webTestClient.post()
-                .uri(tasks)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(taskOne)
+                .uri(loanAppPath.getLoanApplication())
+                .bodyValue(request)
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(Task.class)
-                .value(saved -> Assertions.assertThat(saved.getTitle()).isEqualTo(taskOne.getTitle()));
+                .expectBody(LoanApplication.class)
+                .consumeWith(res -> {
+                    LoanApplication result = res.getResponseBody();
+                    assert result != null;
+                    Assertions.assertThat(result.getId()).isEqualTo(1L);
+                    Assertions.assertThat(result.getState().getId()).isEqualTo(1L);
+                    Assertions.assertThat(result.getLoanType().getId()).isEqualTo(1L);
+                    Assertions.assertThat(result.getLoanType().getName()).isEqualTo("PERSONAL");
+                });
     }
 
     @Test
-    void shouldPutUpdateTask() {
-        Task task = Task.builder()
-                .id("1")
-                .title("Task 1")
-                .description("Description")
-                .priority(Priority.HIGH)
-                .completed(true)
+    void shouldReturnBadRequestWhenInvalidRequest() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(-1000))
+                .term(0)
+                .email("correo-no-valido")
+                .stateId(null)
+                .loanTypeId(null)
                 .build();
 
-        when(taskUseCase.updateTask(any(Task.class))).thenReturn(Mono.just(task));
-
-        webTestClient.put()
-                .uri(tasks)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(task)
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                .bodyValue(invalidRequest)
                 .exchange()
-                .expectStatus().isOk()
-                .expectBody(Task.class)
-                .value(updated -> Assertions.assertThat(updated.isCompleted()).isTrue());
-    }
-
-    @Test
-    void shouldDeleteTask() {
-        String id = "1";
-        when(taskUseCase.deleteTask(id)).thenReturn(Mono.empty());
-
-        webTestClient.delete()
-                .uri(tasks + "/" + id)
-                .exchange()
-                .expectStatus().isNoContent();
+                .expectStatus().isBadRequest();
     }
 }
