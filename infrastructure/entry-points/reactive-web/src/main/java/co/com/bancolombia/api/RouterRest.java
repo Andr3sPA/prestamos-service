@@ -1,6 +1,6 @@
 package co.com.bancolombia.api;
 
-
+import co.com.bancolombia.api.filter.GlobalExceptionFilter;
 import co.com.bancolombia.api.config.LoanAppPath;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.dto.LoanApplicationRequest;
@@ -33,7 +33,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterRest {
 
     private final LoanAppPath loanAppPath;
-
+    private final GlobalExceptionFilter globalExceptionFilter;
     @Bean
     @RouterOperations({
             @RouterOperation(
@@ -66,7 +66,8 @@ public class RouterRest {
             )
     })
     public RouterFunction<ServerResponse> routerFunction(HandlerLoanApp handlerLoanApp) {
-        return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp);
+        return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp)
+                .filter(globalExceptionFilter);
     }
 }
 

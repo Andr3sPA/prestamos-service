@@ -1,7 +1,5 @@
 pluginManagement {
     repositories {
-        //mavenLocal()
-        //maven { url = '...' }
         gradlePluginPortal()
     }
 }
@@ -17,12 +15,17 @@ rootProject.name = 'JavaReactivo'
 include ':app-service'
 include ':model'
 include ':usecase'
+include ':exception'
 project(':app-service').projectDir = file('./applications/app-service')
 project(':model').projectDir = file('./domain/model')
 project(':usecase').projectDir = file('./domain/usecase')
+project(':exception').projectDir = file('./domain/exception')
+
 include ':reactive-web'
 project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
+
 include ':r2dbc-postgresql'
 project(':r2dbc-postgresql').projectDir = file('./infrastructure/driven-adapters/r2dbc-postgresql')
+
 include ':dto'
 project(':dto').projectDir = file('./domain/dto')
