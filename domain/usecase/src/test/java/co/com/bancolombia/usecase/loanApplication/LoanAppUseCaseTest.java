@@ -8,12 +8,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import reactor.core.publisher.Mono;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 class LoanAppUseCaseTest {
+
     @Mock
     private LoanAppRepository loanAppRepository;
+
     @InjectMocks
     private LoanAppUseCase useCase;
 
@@ -24,11 +27,15 @@ class LoanAppUseCaseTest {
 
     @Test
     void testSaveLoanApp() {
-        LoanApplicationRequest request = new LoanApplicationRequest();
+        // Arrange
         LoanApplication loanApp = new LoanApplication();
-        when(loanAppRepository.register(request)).thenReturn(Mono.just(loanApp));
-        Mono<LoanApplication> result = useCase.saveLoanApp(request);
+        when(loanAppRepository.register(loanApp)).thenReturn(Mono.just(loanApp));
+
+        // Act
+        Mono<LoanApplication> result = useCase.saveLoanApp(loanApp);
+
+        // Assert
         assertNotNull(result.block());
-        verify(loanAppRepository).register(request);
+        verify(loanAppRepository).register(loanApp);
     }
 }
