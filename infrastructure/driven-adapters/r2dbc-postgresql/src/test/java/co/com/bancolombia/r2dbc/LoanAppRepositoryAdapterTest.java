@@ -37,39 +37,36 @@ class LoanAppRepositoryAdapterTest {
 
     @Test
     void testRegister() {
-        // Crear un LoanApplication con datos simulados
-    LoanApplication request = new LoanApplication();
-    request.setAmount(new java.math.BigDecimal("1000.0"));
-    request.setTerm(12);
-    request.setEmail("test@example.com");
-    // Simular State y LoanType si es necesario
-    // request.setState(...);
-    // request.setLoanType(...);
+        LoanApplication request = new LoanApplication();
+        request.setAmount(new java.math.BigDecimal("1000.0"));
+        request.setTerm(12);
+        request.setEmail("test@example.com");
+        request.setStateId(1L);       // 👈 necesario
+        request.setLoanTypeId(2L);    // 👈 necesario
 
+        co.com.bancolombia.r2dbc.entity.StateEntity stateEntity = mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
+        co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity = mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
+        co.com.bancolombia.model.State stateModel = mock(co.com.bancolombia.model.State.class);
+        co.com.bancolombia.model.LoanType loanTypeModel = mock(co.com.bancolombia.model.LoanType.class);
+        co.com.bancolombia.r2dbc.entity.LoanApplicationEntity entity = mock(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class);
+        LoanApplication savedModel = new LoanApplication();
 
-    // Usar Long para los IDs
-    co.com.bancolombia.r2dbc.entity.StateEntity stateEntity = mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
-    co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity = mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
-    co.com.bancolombia.model.State stateModel = mock(co.com.bancolombia.model.State.class);
-    co.com.bancolombia.model.LoanType loanTypeModel = mock(co.com.bancolombia.model.LoanType.class);
-    co.com.bancolombia.r2dbc.entity.LoanApplicationEntity entity = mock(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class);
-    LoanApplication savedModel = new LoanApplication();
+        when(repoState.findById(1L)).thenReturn(Mono.just(stateEntity));
+        when(repoLoanType.findById(2L)).thenReturn(Mono.just(loanTypeEntity));
+        when(stateMapper.toModel(stateEntity)).thenReturn(stateModel);
+        when(loanTypeMapper.toModel(loanTypeEntity)).thenReturn(loanTypeModel);
+        when(loanApplicationMapper.toEntity(any(LoanApplication.class))).thenReturn(entity);
+        when(repoLoanApp.save(entity)).thenReturn(Mono.just(entity));
+        when(loanApplicationMapper.toModel(entity)).thenReturn(savedModel);
 
-    when(repoState.findById(any(Long.class))).thenReturn(Mono.just(stateEntity));
-    when(repoLoanType.findById(any(Long.class))).thenReturn(Mono.just(loanTypeEntity));
-    when(stateMapper.toModel(stateEntity)).thenReturn(stateModel);
-    when(loanTypeMapper.toModel(loanTypeEntity)).thenReturn(loanTypeModel);
-    when(loanApplicationMapper.toEntity(any(LoanApplication.class))).thenReturn(entity);
-    when(repoLoanApp.save(entity)).thenReturn(Mono.just(entity));
-    when(loanApplicationMapper.toModel(entity)).thenReturn(savedModel);
+        Mono<LoanApplication> result = adapter.register(request);
 
-    Mono<LoanApplication> result = adapter.register(request);
-    LoanApplication loanAppResult = result.block();
-    assertNotNull(loanAppResult);
-    verify(repoState, atLeastOnce()).findById(any(Long.class));
-    verify(repoLoanType, atLeastOnce()).findById(any(Long.class));
-    verify(loanApplicationMapper).toEntity(any(LoanApplication.class));
-    verify(repoLoanApp).save(entity);
-    verify(loanApplicationMapper).toModel(entity);
+        assertNotNull(result.block());
+        verify(repoState).findById(1L);
+        verify(repoLoanType).findById(2L);
+        verify(loanApplicationMapper).toEntity(any(LoanApplication.class));
+        verify(repoLoanApp).save(entity);
+        verify(loanApplicationMapper).toModel(entity);
     }
+
 }
