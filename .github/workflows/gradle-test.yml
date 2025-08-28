@@ -37,3 +37,8 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew clean test --no-daemon --stacktrace --console=plain
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: dto-test-report
+          path: domain/dto/build/reports/tests/test/
