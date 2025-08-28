@@ -83,11 +83,8 @@ class LoanAppRepositoryAdapterTest {
         when(stateMapper.toModel(stateEntity)).thenReturn(stateModel);
         when(loanTypeMapper.toModel(loanTypeEntity)).thenReturn(loanTypeModel);
         when(loanApplicationMapper.toEntity(any(LoanApplication.class))).thenReturn(entity);
-
-        // Corrección aquí: especificar tipo de entidad para save
         when(repoLoanApp.save(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class)))
                 .thenReturn(Mono.just(entity));
-
         when(loanApplicationMapper.toModel(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class)))
                 .thenReturn(savedModel);
 
@@ -103,9 +100,8 @@ class LoanAppRepositoryAdapterTest {
         assertNotNull(response.getState());
         assertNotNull(response.getLoanType());
 
-        // Verificaciones con ArgumentMatchers
-        verify(repoState).findById(1L);
-        verify(repoLoanType).findById(2L);
+        verify(repoState, times(2)).findById(1L);
+        verify(repoLoanType, times(2)).findById(2L);
         verify(loanApplicationMapper).toEntity(any(LoanApplication.class));
         verify(repoLoanApp).save(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
         verify(loanApplicationMapper).toModel(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
