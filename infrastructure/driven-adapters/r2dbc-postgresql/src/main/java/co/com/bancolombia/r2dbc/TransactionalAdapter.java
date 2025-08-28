@@ -15,7 +15,7 @@ public class TransactionalAdapter implements TransactionalGateway {
 
 
     @Override
-    public <T> Mono<T> execute(Mono<T> action) {
+    public <T> Mono<T> transactional(Mono<T> action) {
         log.trace("Iniciando transacción reactiva");
         return transactionalOperator.transactional(action)
             .doOnSuccess(result -> log.trace("Transacción completada exitosamente: {}", result))
