@@ -25,8 +25,13 @@ public class LoanAppRepositoryAdapter implements LoanAppRepository {
 
     @Override
     public Mono<LoanApplication> register(LoanApplication loanApp) {
+
+        if(loanApp.getState().getId()==null){
+            loanApp.getState().setId(1L);
+        }
         log.trace("Iniciando registro de préstamo: {}", loanApp);
         return Mono.zip(
+
                 repoState.findById(loanApp.getState().getId()),
                 repoLoanType.findById(loanApp.getLoanType().getId())
         ).flatMap(tuple -> {
