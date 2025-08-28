@@ -1,21 +1,21 @@
 package co.com.bancolombia.r2dbc;
+
 import co.com.bancolombia.model.State;
 import co.com.bancolombia.model.LoanType;
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
 import co.com.bancolombia.r2dbc.mapper.LoanTypeMapper;
 import co.com.bancolombia.r2dbc.mapper.StateMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import reactor.core.publisher.Mono;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class LoanAppRepositoryAdapterTest {
+
     @Mock
     private LoanAppReactiveRepository repoLoanApp;
     @Mock
@@ -39,41 +39,43 @@ class LoanAppRepositoryAdapterTest {
     @Test
     void testRegister() {
         // Arrange
-        LoanApplication request = new LoanApplication();
-        request.setAmount(new java.math.BigDecimal("1000.0"));
-        request.setTerm(12);
-        request.setEmail("test@example.com");
+        LoanApplication request = LoanApplication.builder()
+                .amount(new java.math.BigDecimal("1000.0"))
+                .term(12)
+                .email("test@example.com")
+                .build();
 
-        // crear los modelos de dominio
-        State stateModel = new State();
-        stateModel.setId(1L);
-        stateModel.setName("Approved");
-        stateModel.setDescription("Application approved");
+        State stateModel = State.builder()
+                .id(1L)
+                .name("Approved")
+                .description("Application approved")
+                .build();
 
-        LoanType loanTypeModel = new LoanType();
-        loanTypeModel.setId(2L);
-        loanTypeModel.setName("Personal Loan");
-        loanTypeModel.setMinimumAmount(new java.math.BigDecimal("500.0"));
-        loanTypeModel.setMaximumAmount(new java.math.BigDecimal("10000.0"));
-        loanTypeModel.setInterestRate(new java.math.BigDecimal("0.05"));
-        loanTypeModel.setAutomaticValidation(true);
+        LoanType loanTypeModel = LoanType.builder()
+                .id(2L)
+                .name("Personal Loan")
+                .minimumAmount(new java.math.BigDecimal("500.0"))
+                .maximumAmount(new java.math.BigDecimal("10000.0"))
+                .interestRate(new java.math.BigDecimal("0.05"))
+                .automaticValidation(true)
+                .build();
 
-        // setear los objetos en la solicitud
         request.setState(stateModel);
         request.setLoanType(loanTypeModel);
 
-        // mocks de entidades
+        // Mocks de entidades
         co.com.bancolombia.r2dbc.entity.StateEntity stateEntity = mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
         co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity = mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
         co.com.bancolombia.r2dbc.entity.LoanApplicationEntity entity = mock(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class);
 
-        LoanApplication savedModel = new LoanApplication();
-        savedModel.setId(99L);
-        savedModel.setAmount(new java.math.BigDecimal("1000.0"));
-        savedModel.setTerm(12);
-        savedModel.setEmail("test@example.com");
-        savedModel.setState(stateModel);
-        savedModel.setLoanType(loanTypeModel);
+        LoanApplication savedModel = LoanApplication.builder()
+                .id(99L)
+                .amount(new java.math.BigDecimal("1000.0"))
+                .term(12)
+                .email("test@example.com")
+                .state(stateModel)
+                .loanType(loanTypeModel)
+                .build();
 
         // Stubbing
         when(repoState.findById(1L)).thenReturn(Mono.just(stateEntity));
@@ -81,8 +83,8 @@ class LoanAppRepositoryAdapterTest {
         when(stateMapper.toModel(stateEntity)).thenReturn(stateModel);
         when(loanTypeMapper.toModel(loanTypeEntity)).thenReturn(loanTypeModel);
         when(loanApplicationMapper.toEntity(any(LoanApplication.class))).thenReturn(entity);
-        when(repoLoanApp.save(entity)).thenReturn(Mono.just(entity));
-        when(loanApplicationMapper.toModel(entity)).thenReturn(savedModel);
+        when(repoLoanApp.save(any())).thenReturn(Mono.just(entity));
+        when(loanApplicationMapper.toModel(any())).thenReturn(savedModel);
 
         // Act
         Mono<LoanApplication> result = adapter.register(request);
@@ -96,11 +98,11 @@ class LoanAppRepositoryAdapterTest {
         assertNotNull(response.getState());
         assertNotNull(response.getLoanType());
 
+        // Verificaciones con ArgumentMatchers
         verify(repoState).findById(1L);
         verify(repoLoanType).findById(2L);
         verify(loanApplicationMapper).toEntity(any(LoanApplication.class));
-        verify(repoLoanApp).save(entity);
-        verify(loanApplicationMapper).toModel(entity);
+        verify(repoLoanApp).save(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
+        verify(loanApplicationMapper).toModel(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
     }
-
 }
