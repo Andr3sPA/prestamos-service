@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import co.com.bancolombia.api.util.RequestValidator;
 @Component
@@ -18,6 +19,11 @@ public class HandlerLoanApp {
     private final RequestValidator requestValidator;
     private final LoanAppUseCase loanAppCase;
     private final LoanApplicationRequestMapper requestMapper;
+    public Mono<ServerResponse> getLoanApps(ServerRequest serverRequest) {
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(loanAppCase.getLoanApps(), LoanApplication.class);
+    }
 
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {
         return serverRequest.bodyToMono(LoanApplicationRequest.class)
@@ -32,4 +38,5 @@ public class HandlerLoanApp {
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(result));
     }
+
 }

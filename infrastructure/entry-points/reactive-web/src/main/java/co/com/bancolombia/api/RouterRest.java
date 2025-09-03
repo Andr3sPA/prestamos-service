@@ -20,12 +20,11 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import lombok.RequiredArgsConstructor;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 import lombok.RequiredArgsConstructor;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
@@ -67,6 +66,7 @@ public class RouterRest {
     })
     public RouterFunction<ServerResponse> routerFunction(HandlerLoanApp handlerLoanApp) {
         return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp)
+                .andRoute(GET(loanAppPath.getLoanApplication()), handlerLoanApp::getLoanApps)
                 .filter(globalExceptionFilter);
     }
 }

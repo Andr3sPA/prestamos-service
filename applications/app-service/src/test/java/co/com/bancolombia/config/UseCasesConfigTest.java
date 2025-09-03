@@ -1,6 +1,6 @@
 package co.com.bancolombia.config;
 
-import co.com.bancolombia.model.gateways.LoanAppRepository;
+import co.com.bancolombia.model.gateways.LoanAppGateway;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -39,8 +39,8 @@ public class UseCasesConfigTest {
         }
 
         @Bean
-        public LoanAppRepository loanAppRepository() {
-            return Mockito.mock(LoanAppRepository.class);
+        public LoanAppGateway loanAppRepository() {
+            return Mockito.mock(LoanAppGateway.class);
         }
     }
 

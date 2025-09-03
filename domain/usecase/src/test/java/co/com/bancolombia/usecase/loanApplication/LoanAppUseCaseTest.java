@@ -1,7 +1,7 @@
 package co.com.bancolombia.usecase.loanApplication;
 
 import co.com.bancolombia.model.LoanApplication;
-import co.com.bancolombia.model.gateways.LoanAppRepository;
+import co.com.bancolombia.model.gateways.LoanAppGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 class LoanAppUseCaseTest {
 
     @Mock
-    private LoanAppRepository loanAppRepository;
+    private LoanAppGateway loanAppGateway;
 
     @InjectMocks
     private LoanAppUseCase useCase;
@@ -29,13 +29,13 @@ class LoanAppUseCaseTest {
     void testSaveLoanApp() {
         // Arrange
         LoanApplication loanApp = new LoanApplication();
-        when(loanAppRepository.register(loanApp)).thenReturn(Mono.just(loanApp));
+        when(loanAppGateway.register(loanApp)).thenReturn(Mono.just(loanApp));
 
         // Act
         Mono<LoanApplication> result = useCase.saveLoanApp(loanApp);
 
         // Assert
         assertNotNull(result.block());
-        verify(loanAppRepository).register(loanApp);
+        verify(loanAppGateway).register(loanApp);
     }
 }

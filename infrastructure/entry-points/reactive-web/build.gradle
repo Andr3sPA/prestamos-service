@@ -9,6 +9,7 @@ dependencies {
     implementation 'org.reactivecommons.utils:object-mapper-api:0.1.0'
     implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
     implementation project(':exception')
+    implementation "org.reactivecommons.utils:object-mapper:0.1.0"
     // 👇 Swagger/OpenAPI para WebFlux funcional
     implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.10'
 }

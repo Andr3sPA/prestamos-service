@@ -6,11 +6,11 @@ import reactor.core.publisher.Mono;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class LoanAppRepositoryTest {
+class LoanAppGatewayTest {
 
     @Test
     void testRegisterMethodSignature() {
-        LoanAppRepository repo = (loanApp) -> Mono.just(new LoanApplication());
+        LoanAppGateway repo = (loanApp) -> Mono.just(new LoanApplication());
 
         LoanApplication loanApplication = new LoanApplication(); // ya no LoanApplicationRequest
         Mono<LoanApplication> result = repo.register(loanApplication);

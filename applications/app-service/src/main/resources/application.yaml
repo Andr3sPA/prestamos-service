@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
@@ -43,7 +43,7 @@ routes:
 adapters:
   restconsumer:
     timeout: 5000
-    url: http://localhost:8080
+    url: http://localhost:8081
   r2dbc:
     host: ep-rough-fire-aecwdwd0-pooler.c-2.us-east-2.aws.neon.tech
     port: 5432

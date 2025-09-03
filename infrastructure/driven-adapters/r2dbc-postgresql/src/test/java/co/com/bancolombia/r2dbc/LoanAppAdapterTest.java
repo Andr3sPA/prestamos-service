@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class LoanAppRepositoryAdapterTest {
+class LoanAppAdapterTest {
 
     @Mock
     private LoanAppReactiveRepository repoLoanApp;
@@ -29,7 +29,7 @@ class LoanAppRepositoryAdapterTest {
     @Mock
     private StateMapper stateMapper;
     @InjectMocks
-    private LoanAppRepositoryAdapter adapter;
+    private LoanAppAdapter adapter;
 
     @BeforeEach
     void setUp() {
