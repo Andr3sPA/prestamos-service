@@ -39,10 +39,11 @@ class LoanAppAdapterTest {
     @Test
     void testRegister() {
         // Arrange
+        String email = "test@example.com";
         LoanApplication request = LoanApplication.builder()
                 .amount(new java.math.BigDecimal("1000.0"))
                 .term(12)
-                .email("test@example.com")
+                .email(email) // CORRECCIÓN: mismo email
                 .build();
 
         State stateModel = State.builder()
@@ -64,15 +65,18 @@ class LoanAppAdapterTest {
         request.setLoanType(loanTypeModel);
 
         // Mocks de entidades
-        co.com.bancolombia.r2dbc.entity.StateEntity stateEntity = mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
-        co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity = mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
-        co.com.bancolombia.r2dbc.entity.LoanApplicationEntity entity = mock(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class);
+        co.com.bancolombia.r2dbc.entity.StateEntity stateEntity =
+                mock(co.com.bancolombia.r2dbc.entity.StateEntity.class);
+        co.com.bancolombia.r2dbc.entity.LoanTypeEntity loanTypeEntity =
+                mock(co.com.bancolombia.r2dbc.entity.LoanTypeEntity.class);
+        co.com.bancolombia.r2dbc.entity.LoanApplicationEntity entity =
+                mock(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class);
 
         LoanApplication savedModel = LoanApplication.builder()
                 .id(99L)
                 .amount(new java.math.BigDecimal("1000.0"))
                 .term(12)
-                .email("test@example.com")
+                .email(email)
                 .state(stateModel)
                 .loanType(loanTypeModel)
                 .build();
@@ -88,13 +92,13 @@ class LoanAppAdapterTest {
         when(loanApplicationMapper.toModel(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class)))
                 .thenReturn(savedModel);
 
-        // Act
-        Mono<LoanApplication> result = adapter.register(request);
+        // Act - CORRECCIÓN: Pasar ambos parámetros
+        Mono<LoanApplication> result = adapter.register(request, email);
 
         // Assert
         LoanApplication response = result.block();
         assertNotNull(response);
-        assertEquals("test@example.com", response.getEmail());
+        assertEquals(email, response.getEmail());
         assertEquals(12, response.getTerm());
         assertEquals(new java.math.BigDecimal("1000.0"), response.getAmount());
         assertNotNull(response.getState());
@@ -105,5 +109,23 @@ class LoanAppAdapterTest {
         verify(loanApplicationMapper).toEntity(any(LoanApplication.class));
         verify(repoLoanApp).save(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
         verify(loanApplicationMapper).toModel(any(co.com.bancolombia.r2dbc.entity.LoanApplicationEntity.class));
+    }
+
+    @Test
+    void testRegisterWithEmailMismatch() {
+        // Arrange
+        LoanApplication request = LoanApplication.builder()
+                .amount(new java.math.BigDecimal("1000.0"))
+                .term(12)
+                .email("request@example.com")
+                .state(State.builder().id(1L).build())
+                .loanType(LoanType.builder().id(2L).build())
+                .build();
+
+        String sessionEmail = "session@example.com";
+
+        // Act & Assert
+        assertThrows(co.com.bancolombia.exception.EmailMismatchException.class,
+                () -> adapter.register(request, sessionEmail).block());
     }
 }

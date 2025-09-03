@@ -1,56 +1,42 @@
 package co.com.bancolombia.api.config;
 
 import co.com.bancolombia.api.RouterRest;
-import co.com.bancolombia.model.Priority;
-import co.com.bancolombia.usecase.task.TaskUseCase;
-import org.junit.jupiter.api.BeforeEach;
+import co.com.bancolombia.api.HandlerLoanApp;
+import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 
 import static org.mockito.Mockito.when;
 
-@ContextConfiguration(classes = {RouterRest.class, Handler.class, TaskPath.class})
+@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, LoanAppPath.class})
 @WebFluxTest
 @Import({CorsConfig.class, SecurityHeadersConfig.class})
+@TestPropertySource(properties = {
+        "routes.paths.loanApplication=/api/v1/solicitud",
+        "cors.allowed-origins=*"
+})
 class ConfigTest {
 
     @Autowired
     private WebTestClient webTestClient;
 
     @MockitoBean
-    private TaskUseCase taskUseCase;
-
-    private final Task taskOne = Task.builder()
-            .id("1")
-            .title("Task 1")
-            .description("Description")
-            .priority(Priority.LOW)
-            .completed(false)
-            .build();
-
-    private final Task taskTwo = Task.builder()
-            .id("2")
-            .title("Task 2")
-            .description("Description")
-            .priority(Priority.LOW)
-            .completed(false)
-            .build();
-
-    @BeforeEach
-    void setUp() {
-        when(taskUseCase.getAllTasks()).thenReturn(Flux.just(taskOne, taskTwo));
-    }
+    private LoanAppUseCase loanAppUseCase;
 
     @Test
     void corsConfigurationShouldAllowOrigins() {
+        // Mock para el endpoint GET (obtener loans)
+        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+
         webTestClient.get()
-                .uri("/api/v1/tasks")
+                .uri("/api/v1/solicitud")
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().valueEquals("Content-Security-Policy",
@@ -63,4 +49,19 @@ class ConfigTest {
                 .expectHeader().valueEquals("Referrer-Policy", "strict-origin-when-cross-origin");
     }
 
+    @Test
+    void securityHeadersShouldBePresent() {
+        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+
+        webTestClient.get()
+                .uri("/api/v1/solicitud")
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().exists("Content-Security-Policy")
+                .expectHeader().exists("Strict-Transport-Security")
+                .expectHeader().exists("X-Content-Type-Options")
+                .expectHeader().exists("Cache-Control")
+                .expectHeader().exists("Pragma")
+                .expectHeader().exists("Referrer-Policy");
+    }
 }

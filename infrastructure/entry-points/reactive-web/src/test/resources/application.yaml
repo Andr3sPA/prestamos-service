@@ -1,4 +1,12 @@
+# infrastructure/entry-points/reactive-web/src/test/resources/application.yaml
 routes:
   paths:
-    tasks: "/api/v1/tasks"
-    tasksById: "/api/v1/tasks/{id}"
+    loanApplication: "/api/v1/solicitud"
+
+cors:
+  allowed-origins: "*"
+
+# Configuración para tests
+spring:
+  main:
+    web-application-type: reactive

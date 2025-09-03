@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
@@ -64,14 +65,14 @@ class RouterRestTest {
 
     @Test
     void shouldCreateLoanApplication() {
-
-
-        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class)))
+        // CORRECCIÓN: Mock con ambos parámetros
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
                 .thenReturn(Mono.just(responseLoan));
-
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
+                // CORRECCIÓN: Agregar el header requerido
+                .header("X-User-Email", "client1@example.com")
                 .bodyValue(request)
                 .exchange()
                 .expectStatus().isOk()
@@ -98,7 +99,34 @@ class RouterRestTest {
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
+                // CORRECCIÓN: Agregar header incluso en test de error
+                .header("X-User-Email", "correo-no-valido")
                 .bodyValue(invalidRequest)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenMissingHeader() {
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                // Sin header X-User-Email
+                .bodyValue(request)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenEmailMismatch() {
+        // CORRECCIÓN: Mock con ambos parámetros
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
+                .thenReturn(Mono.just(responseLoan));
+
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                // Header con email diferente al del body
+                .header("X-User-Email", "different@example.com")
+                .bodyValue(request)
                 .exchange()
                 .expectStatus().isBadRequest();
     }

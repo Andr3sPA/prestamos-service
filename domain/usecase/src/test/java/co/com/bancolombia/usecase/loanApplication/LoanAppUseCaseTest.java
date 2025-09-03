@@ -29,13 +29,17 @@ class LoanAppUseCaseTest {
     void testSaveLoanApp() {
         // Arrange
         LoanApplication loanApp = new LoanApplication();
-        when(loanAppGateway.register(loanApp)).thenReturn(Mono.just(loanApp));
+        String email = "test@email.com";
+
+        // CORRECCIÓN: Mock con ambos parámetros
+        when(loanAppGateway.register(loanApp, email)).thenReturn(Mono.just(loanApp));
 
         // Act
-        Mono<LoanApplication> result = useCase.saveLoanApp(loanApp);
+        Mono<LoanApplication> result = useCase.saveLoanApp(loanApp, email);
 
         // Assert
         assertNotNull(result.block());
-        verify(loanAppGateway).register(loanApp);
+        // CORRECCIÓN: Verificar con ambos parámetros
+        verify(loanAppGateway).register(loanApp, email);
     }
 }
