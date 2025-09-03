@@ -32,5 +32,6 @@ public class LoanApplicationRequest {
 
     @NotNull(message = "El tipo de préstamo es obligatorio")
     private Long loanTypeId;
+
 }
 

@@ -26,13 +26,14 @@ public class HandlerLoanApp {
     }
 
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {
+        String email = serverRequest.headers().firstHeader("X-User-Email");
         return serverRequest.bodyToMono(LoanApplicationRequest.class)
                 .flatMap(dto->{
                     requestValidator.validate(dto,LoanApplicationRequest.class);
                     return Mono.just(dto);
                 })
                 .map(requestMapper::toModel)
-                .flatMap(loanAppCase::saveLoanApp)
+                .flatMap(model -> loanAppCase.saveLoanApp(model, email))
                 .flatMap(result -> ServerResponse
                         .ok()
                         .contentType(MediaType.APPLICATION_JSON)

@@ -1,6 +1,7 @@
 package co.com.bancolombia.r2dbc;
 
 
+import co.com.bancolombia.exception.EmailMismatchException;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.model.gateways.LoanAppGateway;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
@@ -42,10 +43,12 @@ public class LoanAppAdapter implements LoanAppGateway {
                 .flatMap(this::enrichLoanApplication);
     }
     @Override
-    public Mono<LoanApplication> register(LoanApplication loanApp) {
+    public Mono<LoanApplication> register(LoanApplication loanApp,String email) {
         if (loanApp.getState().getId() == null) {
             loanApp.getState().setId(1L);
         }
+        if (email!= loanApp.getEmail())
+            new EmailMismatchException(loanApp.getEmail(),email);
         log.trace("Iniciando registro de préstamo: {}", loanApp);
 
         return Mono.zip(
