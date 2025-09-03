@@ -47,8 +47,9 @@ public class LoanAppAdapter implements LoanAppGateway {
         if (loanApp.getState().getId() == null) {
             loanApp.getState().setId(1L);
         }
-        if (email!= loanApp.getEmail())
-            new EmailMismatchException(loanApp.getEmail(),email);
+        if (!email.equals(loanApp.getEmail())) {
+            throw new EmailMismatchException(loanApp.getEmail(), email);
+        }
         log.trace("Iniciando registro de préstamo: {}", loanApp);
 
         return Mono.zip(
