@@ -12,6 +12,5 @@ public class ErrorResponse {
     private String tittle;
     private String message;
     private List<String> errors;
-    private int status;
     private Instant timestamp;
 }

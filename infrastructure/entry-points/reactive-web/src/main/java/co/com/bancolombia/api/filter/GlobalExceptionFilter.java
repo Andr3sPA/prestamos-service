@@ -39,7 +39,6 @@ public class GlobalExceptionFilter implements HandlerFilterFunction<ServerRespon
                                     .tittle(ex.getTitle())
                                     .message(ex.getMessage())
                                     .errors(ex.getErrors())
-                                    .status(ex.getStatus())
                                     .timestamp(ex.getTimestamp())
                                     .build()
                     );
