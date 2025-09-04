@@ -13,16 +13,27 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import co.com.bancolombia.api.util.RequestValidator;
+
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class HandlerLoanApp {
     private final RequestValidator requestValidator;
     private final LoanAppUseCase loanAppCase;
     private final LoanApplicationRequestMapper requestMapper;
-    public Mono<ServerResponse> getLoanApps(ServerRequest serverRequest) {
-        return ServerResponse.ok()
+    public Mono<ServerResponse> getLoanApps(ServerRequest req) {
+    int page = Integer.parseInt(req.queryParam("page").orElse("0"));
+    int size = Integer.parseInt(req.queryParam("size").orElse("10"));
+
+
+    int offset = page * size;
+    return loanAppCase.getLoanApps(offset, size, page)
+        .flatMap(response ->
+            ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(loanAppCase.getLoanApps(), LoanApplication.class);
+                .bodyValue(response)
+        );
     }
 
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {

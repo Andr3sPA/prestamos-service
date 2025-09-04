@@ -1,6 +1,9 @@
 package co.com.bancolombia.r2dbc;
+import co.com.bancolombia.r2dbc.entity.LoanApplicationEntity;
+import org.springframework.data.relational.core.query.Query;
+import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 
-
+import co.com.bancolombia.model.PageResponse;
 import co.com.bancolombia.exception.EmailMismatchException;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.model.gateways.LoanAppGateway;
@@ -8,7 +11,6 @@ import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
 import co.com.bancolombia.r2dbc.mapper.LoanTypeMapper;
 import co.com.bancolombia.r2dbc.mapper.StateMapper;
 import lombok.RequiredArgsConstructor;
-import org.reactivecommons.utils.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -25,6 +27,7 @@ public class LoanAppAdapter implements LoanAppGateway {
     private final LoanApplicationMapper loanApplicationMapper;
     private final LoanTypeMapper loanTypeMapper;
     private final StateMapper stateMapper;
+    private final R2dbcEntityTemplate template;
     private Mono<LoanApplication> enrichLoanApplication(LoanApplication loanApp) {
         return Mono.zip(
                 repoState.findById(loanApp.getState().getId()),
@@ -35,13 +38,27 @@ public class LoanAppAdapter implements LoanAppGateway {
             return loanApp;
         });
     }
-
     @Override
-    public Flux<LoanApplication> findAll() {
-        return repoLoanApp.findAll()
+    public Mono<PageResponse<LoanApplication>> findAll(int offset, int limit, int page) {
+
+        Query query = Query.empty().limit(limit).offset(offset);
+
+        Flux<LoanApplication> contentFlux = template.select(query, LoanApplicationEntity.class)
                 .map(loanApplicationMapper::toModel)
                 .flatMap(this::enrichLoanApplication);
+
+        Mono<Long> totalCount = template.count(Query.empty(), LoanApplicationEntity.class);
+
+        return contentFlux.collectList()
+        .zipWith(totalCount)
+        .map(t -> new PageResponse<>(
+            t.getT1(),
+            t.getT2(),
+            page,
+            limit
+                ));
     }
+
     @Override
     public Mono<LoanApplication> register(LoanApplication loanApp,String email) {
         if (loanApp.getState().getId() == null) {
