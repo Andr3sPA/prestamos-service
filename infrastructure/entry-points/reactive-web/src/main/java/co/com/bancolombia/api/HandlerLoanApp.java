@@ -26,7 +26,6 @@ public class HandlerLoanApp {
     int page = Integer.parseInt(req.queryParam("page").orElse("0"));
     int size = Integer.parseInt(req.queryParam("size").orElse("10"));
 
-
     int offset = page * size;
     return loanAppCase.getLoanApps(offset, size, page)
         .flatMap(response ->
