@@ -1,5 +1,7 @@
 package co.com.bancolombia.r2dbc;
+import co.com.bancolombia.exception.LoanApplicationNotFoundException;
 import co.com.bancolombia.r2dbc.entity.LoanApplicationEntity;
+import co.com.bancolombia.r2dbc.entity.StateEntity;
 import org.springframework.data.relational.core.query.Query;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 
@@ -16,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+import org.reactivecommons.utils.ObjectMapper;
 @RequiredArgsConstructor
 @Repository
 public class LoanAppAdapter implements LoanAppGateway {
@@ -27,6 +29,7 @@ public class LoanAppAdapter implements LoanAppGateway {
     private final LoanApplicationMapper loanApplicationMapper;
     private final LoanTypeMapper loanTypeMapper;
     private final StateMapper stateMapper;
+    private final ObjectMapper mapper;
     private final R2dbcEntityTemplate template;
     private Mono<LoanApplication> enrichLoanApplication(LoanApplication loanApp) {
         return Mono.zip(
@@ -58,6 +61,26 @@ public class LoanAppAdapter implements LoanAppGateway {
             limit
                 ));
     }
+
+    @Override
+    public Mono<LoanApplication> update(Long id, String name) {
+        log.trace("Iniciando actualización de préstamo con ID {}: nuevo estado '{}'", id, name);
+        return repoLoanApp.findById(id)
+                .switchIfEmpty(Mono.error(new LoanApplicationNotFoundException(id)))
+                .flatMap(existing ->
+                        repoState.findByName(name)
+                                .map(StateEntity::getId)
+                                .flatMap(stateId -> {
+                                    existing.setStateId(stateId);
+                                    return repoLoanApp.save(existing);
+                                })
+                )
+                .map(loanApplicationMapper::toModel)
+                .flatMap(this::enrichLoanApplication)
+                .doOnSuccess(updated -> log.trace("Préstamo actualizado exitosamente: {}", updated))
+                .doOnError(error -> log.error("Error al actualizar préstamo", error));
+    }
+
 
     @Override
     public Mono<LoanApplication> register(LoanApplication loanApp,String email) {
@@ -94,4 +117,3 @@ public class LoanAppAdapter implements LoanAppGateway {
 
 
 }
-

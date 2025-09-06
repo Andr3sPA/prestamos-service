@@ -67,6 +67,7 @@ public class RouterRest {
     public RouterFunction<ServerResponse> routerFunction(HandlerLoanApp handlerLoanApp) {
         return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp)
                 .andRoute(GET(loanAppPath.getLoanApplication()), handlerLoanApp::getLoanApps)
+                .andRoute(PUT(loanAppPath.getLoanApplication()), handlerLoanApp::updateLoanApp)
                 .filter(globalExceptionFilter);
     }
 }

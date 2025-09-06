@@ -15,5 +15,9 @@ public class LoanAppUseCase {
     public Mono<PageResponse<LoanApplication>> getLoanApps(int offset, int limit, int page) {
         return loanAppGateway.findAll(offset, limit, page);
     }
+    public Mono<LoanApplication> updateLoanApp(Long id, String state) {
+        return loanAppGateway.update(id, state);
+    }
+
 
 }

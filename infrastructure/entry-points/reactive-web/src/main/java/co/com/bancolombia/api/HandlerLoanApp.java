@@ -1,6 +1,7 @@
 package co.com.bancolombia.api;
 
 import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.dto.UpdateLoanAppReq;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
@@ -48,6 +49,19 @@ public class HandlerLoanApp {
                         .ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(result));
+    }
+    public Mono<ServerResponse> updateLoanApp(ServerRequest req){
+        return req.bodyToMono(UpdateLoanAppReq.class)
+                .flatMap(dto->{
+                    requestValidator.validate(dto,UpdateLoanAppReq.class);
+                    return Mono.just(dto);
+                })
+                .flatMap(body->loanAppCase.updateLoanApp(body.getId(), String.valueOf(body.getName())))
+                .flatMap(result -> ServerResponse
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(result))
+                .switchIfEmpty(ServerResponse.badRequest().bodyValue("No se pudo actualizar la solicitud"));
     }
 
 }
