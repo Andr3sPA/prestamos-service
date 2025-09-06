@@ -9,4 +9,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "routes.paths")
 public class LoanAppPath {
     private String loanApplication;
+    private String loanCapacity;
 }
