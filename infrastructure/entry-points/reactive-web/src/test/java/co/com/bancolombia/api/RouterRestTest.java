@@ -1,18 +1,26 @@
 package co.com.bancolombia.api;
 
 import co.com.bancolombia.api.config.LoanAppPath;
+import co.com.bancolombia.api.filter.GlobalExceptionFilter;
+import co.com.bancolombia.api.util.RequestValidator;
 import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.model.LoanType;
 import co.com.bancolombia.model.State;
 import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 import java.math.BigDecimal;
@@ -24,6 +32,7 @@ import static org.mockito.Mockito.when;
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
 @EnableConfigurationProperties(LoanAppPath.class)
 @WebFluxTest
+@Import({GlobalExceptionFilter.class, RequestValidator.class, RouterRestTest.TestConfig.class})
 class RouterRestTest {
 
     @Autowired
@@ -62,6 +71,19 @@ class RouterRestTest {
                     .automaticValidation(true)
                     .build())
             .build();
+
+    // Clase de configuración para beans de test
+    @Configuration
+    static class TestConfig {
+        @Bean
+        public Validator validator() {
+            return new LocalValidatorFactoryBean();
+        }
+        @Bean
+        public LoanApplicationRequestMapper loanApplicationRequestMapper() {
+            return org.mockito.Mockito.mock(LoanApplicationRequestMapper.class);
+        }
+    }
 
     @Test
     void shouldCreateLoanApplication() {

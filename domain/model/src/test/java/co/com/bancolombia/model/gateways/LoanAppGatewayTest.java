@@ -1,6 +1,7 @@
 package co.com.bancolombia.model.gateways;
 
 import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.model.PageResponse;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -18,8 +19,13 @@ class LoanAppGatewayTest {
             }
 
             @Override
-            public Flux<LoanApplication> findAll() {
-                return Flux.just(new LoanApplication(), new LoanApplication());
+            public Mono<PageResponse<LoanApplication>> findAll(int offset, int limit, int page) {
+                return Mono.just(new PageResponse<>());
+            }
+
+            @Override
+            public Mono<LoanApplication> update(Long id, String status) {
+                return Mono.just(new LoanApplication());
             }
         };
 
@@ -30,7 +36,7 @@ class LoanAppGatewayTest {
         assertNotNull(result.block());
 
         // También probamos findAll
-        assertNotNull(repo.findAll());
-        assertNotNull(repo.findAll().collectList().block());
+        assertNotNull(repo.findAll(0, 10, 1));
+        assertNotNull(repo.findAll(0, 10, 1).block());
     }
 }

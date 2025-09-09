@@ -12,4 +12,7 @@ dependencies {
     implementation "org.reactivecommons.utils:object-mapper:0.1.0"
     // 👇 Swagger/OpenAPI para WebFlux funcional
     implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.10'
+    testImplementation platform('org.junit:junit-bom:5.12.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.12.2'
 }

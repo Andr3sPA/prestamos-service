@@ -1,13 +1,5 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
-CREATE TABLE public.tasks
-(
-    task_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    title character varying,
-    description character varying,
-    priority character varying,
-    completed boolean
-);
 CREATE TABLE states (
     state_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,

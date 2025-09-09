@@ -3,21 +3,30 @@ package co.com.bancolombia.api.config;
 import co.com.bancolombia.api.RouterRest;
 import co.com.bancolombia.api.HandlerLoanApp;
 import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
+import co.com.bancolombia.api.filter.GlobalExceptionFilter;
+import co.com.bancolombia.api.util.RequestValidator;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, LoanAppPath.class})
 @WebFluxTest
-@Import({CorsConfig.class, SecurityHeadersConfig.class})
+@Import({CorsConfig.class, SecurityHeadersConfig.class, GlobalExceptionFilter.class, RequestValidator.class, ConfigTest.TestConfig.class})
 @TestPropertySource(properties = {
         "routes.paths.loanApplication=/api/v1/solicitud",
         "cors.allowed-origins=*"
@@ -33,7 +42,7 @@ class ConfigTest {
     @Test
     void corsConfigurationShouldAllowOrigins() {
         // Mock para el endpoint GET (obtener loans)
-        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+        when(loanAppUseCase.getLoanApps(anyInt(), anyInt(), anyInt())).thenReturn(Mono.empty());
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
@@ -51,7 +60,7 @@ class ConfigTest {
 
     @Test
     void securityHeadersShouldBePresent() {
-        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+        when(loanAppUseCase.getLoanApps(anyInt(), anyInt(), anyInt())).thenReturn(Mono.empty());
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
@@ -63,5 +72,17 @@ class ConfigTest {
                 .expectHeader().exists("Cache-Control")
                 .expectHeader().exists("Pragma")
                 .expectHeader().exists("Referrer-Policy");
+    }
+
+    @Configuration
+    static class TestConfig {
+        @Bean
+        public Validator validator() {
+            return new LocalValidatorFactoryBean();
+        }
+        @Bean
+        public LoanApplicationRequestMapper loanApplicationRequestMapper() {
+            return new LoanApplicationRequestMapper();
+        }
     }
 }

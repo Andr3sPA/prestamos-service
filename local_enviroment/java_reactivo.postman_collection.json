@@ -13,7 +13,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks",
+					"raw": "http://localhost:8080/api/v1/prestamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -22,7 +22,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks"
+						"prestamos"
 					]
 				}
 			},
@@ -43,7 +43,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks",
+					"raw": "http://localhost:8080/api/v1/prestamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -52,7 +52,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks"
+						"prestamos"
 					]
 				}
 			},
@@ -85,7 +85,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks",
+					"raw": "http://localhost:8080/api/v1/prestamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -94,7 +94,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks"
+						"prestamos"
 					]
 				}
 			},
@@ -115,7 +115,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks",
+					"raw": "http://localhost:8080/api/v1/prestamos",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -124,7 +124,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks"
+						"prestamos"
 					]
 				}
 			},
@@ -136,7 +136,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks/099cdd2a-f233-4785-b975-80aa20158a37",
+					"raw": "http://localhost:8080/api/v1/prestamos/099cdd2a-f233-4785-b975-80aa20158a37",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -145,7 +145,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks",
+						"prestamos",
 						"099cdd2a-f233-4785-b975-80aa20158a37"
 					]
 				}
@@ -158,7 +158,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/tasks/099cdd2a-f233-4785-b975-80aa20158a37",
+					"raw": "http://localhost:8080/api/v1/prestamos/099cdd2a-f233-4785-b975-80aa20158a37",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -167,7 +167,7 @@
 					"path": [
 						"api",
 						"v1",
-						"tasks",
+						"prestamos",
 						"099cdd2a-f233-4785-b975-80aa20158a37"
 					]
 				}
