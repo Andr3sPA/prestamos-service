@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.dto.LoanApplicationRequestTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:08.133Z" hostname="codespaces-915fc9" time="0.2">
+  <properties/>
+  <testcase name="allArgsConstructorWorks()" classname="co.com.bancolombia.dto.LoanApplicationRequestTest" time="0.164"/>
+  <testcase name="noArgsConstructorWorks()" classname="co.com.bancolombia.dto.LoanApplicationRequestTest" time="0.009"/>
+  <testcase name="builderAndGettersWork()" classname="co.com.bancolombia.dto.LoanApplicationRequestTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

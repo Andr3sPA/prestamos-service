@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoanAppAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaReactivo</a> &gt; <a href="index.source.html" class="el_package">co.com.bancolombia.r2dbc</a> &gt; <span class="el_source">LoanAppAdapter.java</span></div><h1>LoanAppAdapter.java</h1><pre class="source lang-java linenums">package co.com.bancolombia.r2dbc;
+import co.com.bancolombia.exception.LoanApplicationNotFoundException;
+import co.com.bancolombia.r2dbc.entity.LoanApplicationEntity;
+import co.com.bancolombia.r2dbc.entity.StateEntity;
+import org.springframework.data.relational.core.query.Query;
+import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
+
+import co.com.bancolombia.model.PageResponse;
+import co.com.bancolombia.exception.EmailMismatchException;
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.model.gateways.LoanAppGateway;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationMapper;
+import co.com.bancolombia.r2dbc.mapper.LoanTypeMapper;
+import co.com.bancolombia.r2dbc.mapper.StateMapper;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import org.reactivecommons.utils.ObjectMapper;
+@RequiredArgsConstructor
+@Repository
+public class LoanAppAdapter implements LoanAppGateway {
+<span class="fc" id="L25">    private static final Logger log = LoggerFactory.getLogger(LoanAppAdapter.class);</span>
+    private final LoanAppReactiveRepository repoLoanApp;
+    private final StateReactiveRepository repoState;
+    private final LoanTypeReactiveRepository repoLoanType;
+    private final LoanApplicationMapper loanApplicationMapper;
+    private final LoanTypeMapper loanTypeMapper;
+    private final StateMapper stateMapper;
+    private final ObjectMapper mapper;
+    private final R2dbcEntityTemplate template;
+    private Mono&lt;LoanApplication&gt; enrichLoanApplication(LoanApplication loanApp) {
+<span class="fc" id="L35">        return Mono.zip(</span>
+<span class="fc" id="L36">                repoState.findById(loanApp.getState().getId()),</span>
+<span class="fc" id="L37">                repoLoanType.findById(loanApp.getLoanType().getId())</span>
+<span class="fc" id="L38">        ).map(tuple -&gt; {</span>
+<span class="fc" id="L39">            loanApp.setState(stateMapper.toModel(tuple.getT1()));</span>
+<span class="fc" id="L40">            loanApp.setLoanType(loanTypeMapper.toModel(tuple.getT2()));</span>
+<span class="fc" id="L41">            return loanApp;</span>
+        });
+    }
+    @Override
+    public Mono&lt;PageResponse&lt;LoanApplication&gt;&gt; findAll(int offset, int limit, int page) {
+
+<span class="nc" id="L47">        Query query = Query.empty().limit(limit).offset(offset);</span>
+
+<span class="nc" id="L49">        Flux&lt;LoanApplication&gt; contentFlux = template.select(query, LoanApplicationEntity.class)</span>
+<span class="nc" id="L50">                .map(loanApplicationMapper::toModel)</span>
+<span class="nc" id="L51">                .flatMap(this::enrichLoanApplication);</span>
+
+<span class="nc" id="L53">        Mono&lt;Long&gt; totalCount = template.count(Query.empty(), LoanApplicationEntity.class);</span>
+
+<span class="nc" id="L55">        return contentFlux.collectList()</span>
+<span class="nc" id="L56">        .zipWith(totalCount)</span>
+<span class="nc" id="L57">        .map(t -&gt; new PageResponse&lt;&gt;(</span>
+<span class="nc" id="L58">            t.getT1(),</span>
+<span class="nc" id="L59">            t.getT2(),</span>
+            page,
+            limit
+                ));
+    }
+
+    @Override
+    public Mono&lt;LoanApplication&gt; update(Long id, String name) {
+<span class="nc" id="L67">        log.trace(&quot;Iniciando actualización de préstamo con ID {}: nuevo estado '{}'&quot;, id, name);</span>
+<span class="nc" id="L68">        return repoLoanApp.findById(id)</span>
+<span class="nc" id="L69">                .switchIfEmpty(Mono.error(new LoanApplicationNotFoundException(id)))</span>
+<span class="nc" id="L70">                .flatMap(existing -&gt;</span>
+<span class="nc" id="L71">                        repoState.findByName(name)</span>
+<span class="nc" id="L72">                                .map(StateEntity::getId)</span>
+<span class="nc" id="L73">                                .flatMap(stateId -&gt; {</span>
+<span class="nc" id="L74">                                    existing.setStateId(stateId);</span>
+<span class="nc" id="L75">                                    return repoLoanApp.save(existing);</span>
+                                })
+                )
+<span class="nc" id="L78">                .map(loanApplicationMapper::toModel)</span>
+<span class="nc" id="L79">                .flatMap(this::enrichLoanApplication)</span>
+<span class="nc" id="L80">                .doOnSuccess(updated -&gt; log.trace(&quot;Préstamo actualizado exitosamente: {}&quot;, updated))</span>
+<span class="nc" id="L81">                .doOnError(error -&gt; log.error(&quot;Error al actualizar préstamo&quot;, error));</span>
+    }
+
+
+    @Override
+    public Mono&lt;LoanApplication&gt; register(LoanApplication loanApp,String email) {
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        if (loanApp.getState().getId() == null) {</span>
+<span class="nc" id="L88">            loanApp.getState().setId(1L);</span>
+        }
+<span class="pc bpc" id="L90" title="1 of 4 branches missed.">        if (email == null || !email.equals(loanApp.getEmail())) {</span>
+<span class="fc" id="L91">            throw new EmailMismatchException(loanApp.getEmail(), email);</span>
+        }
+<span class="fc" id="L93">        log.trace(&quot;Iniciando registro de préstamo: {}&quot;, loanApp);</span>
+
+<span class="fc" id="L95">        return Mono.zip(</span>
+<span class="fc" id="L96">                repoState.findById(loanApp.getState().getId()),</span>
+<span class="fc" id="L97">                repoLoanType.findById(loanApp.getLoanType().getId())</span>
+<span class="fc" id="L98">        ).flatMap(tuple -&gt; {</span>
+<span class="fc" id="L99">            var state = stateMapper.toModel(tuple.getT1());</span>
+<span class="fc" id="L100">            var loanType = loanTypeMapper.toModel(tuple.getT2());</span>
+
+<span class="fc" id="L102">            LoanApplication model = new LoanApplication();</span>
+<span class="fc" id="L103">            model.setAmount(loanApp.getAmount());</span>
+<span class="fc" id="L104">            model.setTerm(loanApp.getTerm());</span>
+<span class="fc" id="L105">            model.setEmail(loanApp.getEmail());</span>
+<span class="fc" id="L106">            model.setState(state);</span>
+<span class="fc" id="L107">            model.setLoanType(loanType);</span>
+
+<span class="fc" id="L109">            log.trace(&quot;Guardando entidad LoanApplication en base de datos: {}&quot;, model);</span>
+<span class="fc" id="L110">            return repoLoanApp.save(loanApplicationMapper.toEntity(model))</span>
+<span class="fc" id="L111">                    .map(loanApplicationMapper::toModel)</span>
+<span class="fc" id="L112">                    .flatMap(this::enrichLoanApplication)</span>
+<span class="fc" id="L113">                    .doOnSuccess(saved -&gt; log.trace(&quot;Préstamo registrado exitosamente: {}&quot;, saved))</span>
+<span class="pc" id="L114">                    .doOnError(error -&gt; log.error(&quot;Error al registrar préstamo&quot;, error));</span>
+        });
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

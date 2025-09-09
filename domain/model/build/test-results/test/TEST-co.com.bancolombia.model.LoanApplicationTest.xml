@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.model.LoanApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:43.982Z" hostname="codespaces-915fc9" time="0.224">
+  <properties/>
+  <testcase name="testLoanApplicationBuilderAndFields()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.224"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.r2dbc.LoanAppAdapterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:56:13.542Z" hostname="codespaces-915fc9" time="12.136">
+  <properties/>
+  <testcase name="testRegister()" classname="co.com.bancolombia.r2dbc.LoanAppAdapterTest" time="12.01"/>
+  <testcase name="testRegisterWithEmailMismatch()" classname="co.com.bancolombia.r2dbc.LoanAppAdapterTest" time="0.085"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

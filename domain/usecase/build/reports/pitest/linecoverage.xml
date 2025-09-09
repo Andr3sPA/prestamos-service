@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='getLoanApps(III)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='6'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='getLoanApps(III)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='5'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='8'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='7'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='2'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='4'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='3'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='14'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='13'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='16'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='getContent()Ljava/util/List;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='4'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='15'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='5'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='10'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='2'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='9'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='3'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='12'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='11'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;clinit&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='17'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='findAll(III)Lreactor/core/publisher/Mono;' number='3'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='findAll(III)Lreactor/core/publisher/Mono;' number='2'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='findAll(III)Lreactor/core/publisher/Mono;' number='4'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='getTotalElements()J' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='findAll(III)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='findAll(III)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='setUp()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='setUp()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='&lt;init&gt;(Lco/com/bancolombia/model/gateways/LoanAppGateway;)V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='&lt;init&gt;(Lco/com/bancolombia/model/gateways/LoanAppGateway;)V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='&lt;init&gt;(Ljava/util/List;JII)V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='setMockitoInterceptor(Lorg/mockito/internal/creation/bytebuddy/access/MockMethodInterceptor;)V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testGetLoanApps()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='&lt;init&gt;(Ljava/util/List;JII)V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testGetLoanApps()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='saveLoanApp(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='saveLoanApp(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='2'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='3'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='4'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='5'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='6'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='7'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='8'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='9'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testSaveLoanApp()V' number='10'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='register(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='register(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testSaveLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='2'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='builder()Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='build()Lco/com/bancolombia/model/LoanApplication;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='builder()Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='4'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='3'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='6'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='5'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='8'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='7'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='update(Ljava/lang/Long;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='build()Lco/com/bancolombia/model/LoanApplication;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='10'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='9'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='12'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='11'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='14'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='13'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='16'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='15'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='updateLoanApp(Ljava/lang/Long;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCase' method='updateLoanApp(Ljava/lang/Long;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGateway$MockitoMock$RLGRHJVi' method='update(Ljava/lang/Long;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='state(Lco/com/bancolombia/model/State;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;(Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Lco/com/bancolombia/model/State;Lco/com/bancolombia/model/LoanType;)V' number='1'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='id(Ljava/lang/Long;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest' method='testUpdateLoanApp()V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;(Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Lco/com/bancolombia/model/State;Lco/com/bancolombia/model/LoanType;)V' number='0'><tests>
+<test name='co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest.[engine:junit-jupiter]/[class:co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest]/[method:testUpdateLoanApp()]'/>
+</tests>
+</block>
+</coverage>

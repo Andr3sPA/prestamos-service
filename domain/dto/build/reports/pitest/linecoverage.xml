@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='2'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='getAmount()Ljava/math/BigDecimal;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='getLoanTypeId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='8'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='7'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='10'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='9'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='4'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='3'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='6'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='5'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='16'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='15'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='12'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='11'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='14'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='allArgsConstructorWorks()V' number='13'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='getEmail()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='getTerm()Ljava/lang/Integer;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='getStateId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='&lt;init&gt;(Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='&lt;init&gt;(Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:allArgsConstructorWorks()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='3'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='4'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='5'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='6'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='7'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='8'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='9'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='10'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='11'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='noArgsConstructorWorks()V' number='2'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:noArgsConstructorWorks()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='builder()Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='loanTypeId(Ljava/lang/Long;)Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='stateId(Ljava/lang/Long;)Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='amount(Ljava/math/BigDecimal;)Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='email(Ljava/lang/String;)Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='3'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='2'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='9'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='8'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='build()Lco/com/bancolombia/dto/LoanApplicationRequest;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='11'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='build()Lco/com/bancolombia/dto/LoanApplicationRequest;' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='10'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='5'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='4'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='7'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='6'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='17'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='16'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='19'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='18'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='13'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='12'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='15'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest$LoanApplicationRequestBuilder' method='term(Ljava/lang/Integer;)Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='14'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequest' method='builder()Lco/com/bancolombia/dto/LoanApplicationRequest$LoanApplicationRequestBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='21'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='20'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.dto.LoanApplicationRequestTest' method='builderAndGettersWork()V' number='22'><tests>
+<test name='co.com.bancolombia.dto.LoanApplicationRequestTest.[engine:junit-jupiter]/[class:co.com.bancolombia.dto.LoanApplicationRequestTest]/[method:builderAndGettersWork()]'/>
+</tests>
+</block>
+</coverage>

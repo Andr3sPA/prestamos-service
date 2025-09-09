@@ -20,6 +20,21 @@ tasks.register('explodedJar', Copy) {
     with jar
     into layout.buildDirectory.dir("exploded")
 }
+tasks.named('bootRun') {
+    doFirst {
+        def envFile = file("${rootDir}/.env")
+        if (envFile.exists()) {
+            envFile.readLines().each { line ->
+                if (line && !line.startsWith("#")) {
+                    def parts = line.split("=", 2)
+                    if (parts.length == 2) {
+                        environment parts[0], parts[1]
+                    }
+                }
+            }
+        }
+    }
+}
 
 jar {
     // To disable the *-plain.jar

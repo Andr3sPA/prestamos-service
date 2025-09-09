@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='loanType(Lco/com/bancolombia/model/LoanType;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getAmount()Ljava/math/BigDecimal;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='term(Ljava/lang/Integer;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='description(Ljava/lang/String;)Lco/com/bancolombia/model/State$StateBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='builder()Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='builder()Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getState()Lco/com/bancolombia/model/State;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='&lt;init&gt;(Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='&lt;init&gt;(Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='builder()Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='build()Lco/com/bancolombia/model/LoanApplication;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='builder()Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='builder()Lco/com/bancolombia/model/State$StateBuilder;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='builder()Lco/com/bancolombia/model/State$StateBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='build()Lco/com/bancolombia/model/LoanApplication;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getTerm()Ljava/lang/Integer;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='email(Ljava/lang/String;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='2'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='3'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='name(Ljava/lang/String;)Lco/com/bancolombia/model/State$StateBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='4'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='5'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='6'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='name(Ljava/lang/String;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='state(Lco/com/bancolombia/model/State;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='id(Ljava/lang/Long;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='build()Lco/com/bancolombia/model/State;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='build()Lco/com/bancolombia/model/State;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='23'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='24'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='25'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State$StateBuilder' method='id(Ljava/lang/Long;)Lco/com/bancolombia/model/State$StateBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='26'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='27'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='28'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='29'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='30'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='31'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='32'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='33'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='34'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='35'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='7'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='&lt;init&gt;(Ljava/lang/Long;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/Boolean;)V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='8'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='&lt;init&gt;(Ljava/lang/Long;Ljava/lang/String;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/Boolean;)V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='9'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='10'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='11'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='12'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='13'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getLoanType()Lco/com/bancolombia/model/LoanType;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='14'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='15'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='16'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='17'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='18'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='19'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='getEmail()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='20'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='21'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplicationTest' method='testLoanApplicationBuilderAndFields()V' number='22'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='id(Ljava/lang/Long;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='build()Lco/com/bancolombia/model/LoanType;' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='build()Lco/com/bancolombia/model/LoanType;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication$LoanApplicationBuilder' method='amount(Ljava/math/BigDecimal;)Lco/com/bancolombia/model/LoanApplication$LoanApplicationBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;(Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Lco/com/bancolombia/model/State;Lco/com/bancolombia/model/LoanType;)V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;(Ljava/lang/Long;Ljava/math/BigDecimal;Ljava/lang/Integer;Ljava/lang/String;Lco/com/bancolombia/model/State;Lco/com/bancolombia/model/LoanType;)V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanApplicationTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanApplicationTest]/[method:testLoanApplicationBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='17'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='18'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='19'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='20'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='21'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='22'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='23'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='24'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getAutomaticValidation()Ljava/lang/Boolean;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='9'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='10'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='11'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='12'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='13'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='14'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='15'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='16'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='2'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='3'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='4'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='5'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='6'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='7'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='8'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getName()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getInterestRate()Ljava/math/BigDecimal;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='maximumAmount(Ljava/math/BigDecimal;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getMaximumAmount()Ljava/math/BigDecimal;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='25'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='26'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='27'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='28'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanTypeTest' method='testLoanTypeBuilderAndFields()V' number='29'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='minimumAmount(Ljava/math/BigDecimal;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='interestRate(Ljava/math/BigDecimal;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType$LoanTypeBuilder' method='automaticValidation(Ljava/lang/Boolean;)Lco/com/bancolombia/model/LoanType$LoanTypeBuilder;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanType' method='getMinimumAmount()Ljava/math/BigDecimal;' number='0'><tests>
+<test name='co.com.bancolombia.model.LoanTypeTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.LoanTypeTest]/[method:testLoanTypeBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='6'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='5'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='4'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='3'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='2'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='1'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='0'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='getDescription()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='12'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='11'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='10'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='9'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='8'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='getId()Ljava/lang/Long;' number='0'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.StateTest' method='testStateBuilderAndFields()V' number='7'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.State' method='getName()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.model.StateTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.StateTest]/[method:testStateBuilderAndFields()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.PageResponse' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='11'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='register(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='register(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='2'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='register(Lco/com/bancolombia/model/LoanApplication;Ljava/lang/String;)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='findAll(III)Lreactor/core/publisher/Mono;' number='2'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='findAll(III)Lreactor/core/publisher/Mono;' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='findAll(III)Lreactor/core/publisher/Mono;' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='&lt;init&gt;(Lco/com/bancolombia/model/gateways/LoanAppGatewayTest;)V' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest$1' method='&lt;init&gt;(Lco/com/bancolombia/model/gateways/LoanAppGatewayTest;)V' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='2'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='4'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='3'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='6'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.LoanApplication' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='5'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='8'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='7'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='10'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.model.gateways.LoanAppGatewayTest' method='testRegisterMethodSignature()V' number='9'><tests>
+<test name='co.com.bancolombia.model.gateways.LoanAppGatewayTest.[engine:junit-jupiter]/[class:co.com.bancolombia.model.gateways.LoanAppGatewayTest]/[method:testRegisterMethodSignature()]'/>
+</tests>
+</block>
+</coverage>

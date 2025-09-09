@@ -4,9 +4,13 @@ import co.com.bancolombia.api.config.LoanAppPath;
 import co.com.bancolombia.api.filter.GlobalExceptionFilter;
 import co.com.bancolombia.api.util.RequestValidator;
 import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.dto.UpdateLoanAppReq;
+import co.com.bancolombia.dto.LoanAppStatus;
+import co.com.bancolombia.exception.EmailMismatchException;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.model.LoanType;
 import co.com.bancolombia.model.State;
+import co.com.bancolombia.model.PageResponse;
 import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
 import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import org.assertj.core.api.Assertions;
@@ -24,9 +28,11 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
@@ -72,6 +78,14 @@ class RouterRestTest {
                     .build())
             .build();
 
+    private final PageResponse<LoanApplication> pageResponse = new PageResponse<>(
+            List.of(responseLoan), 1L, 0, 10);
+
+    private final UpdateLoanAppReq updateRequest = UpdateLoanAppReq.builder()
+            .id(1L)
+            .name(LoanAppStatus.APPROVED)
+            .build();
+
     // Clase de configuración para beans de test
     @Configuration
     static class TestConfig {
@@ -81,15 +95,22 @@ class RouterRestTest {
         }
         @Bean
         public LoanApplicationRequestMapper loanApplicationRequestMapper() {
-            return org.mockito.Mockito.mock(LoanApplicationRequestMapper.class);
+            return new LoanApplicationRequestMapper();
         }
     }
 
     @Test
     void shouldCreateLoanApplication() {
-        // CORRECCIÓN: Mock con ambos parámetros
+        // Mock to return success when emails match
         when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.just(responseLoan));
+                .thenAnswer(invocation -> {
+                    LoanApplication model = invocation.getArgument(0);
+                    String email = invocation.getArgument(1);
+                    if (email != null && email.equals(model.getEmail())) {
+                        return Mono.just(responseLoan);
+                    }
+                    return Mono.error(new EmailMismatchException(model.getEmail(), email));
+                });
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
@@ -130,6 +151,10 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenMissingHeader() {
+        // Mock to throw exception when email is null
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), isNull()))
+                .thenReturn(Mono.error(new EmailMismatchException(request.getEmail(), null)));
+
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
                 // Sin header X-User-Email
@@ -140,15 +165,117 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenEmailMismatch() {
-        // CORRECCIÓN: Mock con ambos parámetros
+        // Mock to throw exception when emails don't match
         when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.just(responseLoan));
+                .thenAnswer(invocation -> {
+                    LoanApplication model = invocation.getArgument(0);
+                    String email = invocation.getArgument(1);
+                    if (!email.equals(model.getEmail())) {
+                        return Mono.error(new EmailMismatchException(model.getEmail(), email));
+                    }
+                    return Mono.just(responseLoan);
+                });
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
                 // Header con email diferente al del body
                 .header("X-User-Email", "different@example.com")
                 .bodyValue(request)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldGetLoanAppsWithDefaultPagination() {
+        when(loanAppUseCase.getLoanApps(0, 10, 0)).thenReturn(Mono.just(pageResponse));
+
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication()).build())
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(PageResponse.class)
+                .consumeWith(response -> {
+                    PageResponse<?> page = response.getResponseBody();
+                    assert page != null;
+                    Assertions.assertThat(page.getContent()).isNotEmpty();
+                    Assertions.assertThat(page.getPage()).isEqualTo(0);
+                    Assertions.assertThat(page.getSize()).isEqualTo(10);
+                });
+    }
+
+    @Test
+    void shouldGetLoanAppsWithCustomPagination() {
+        // For page=2, size=5, offset should be 2*5=10
+        when(loanAppUseCase.getLoanApps(10, 5, 2)).thenReturn(Mono.just(pageResponse));
+
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "2")
+                        .queryParam("size", "5")
+                        .build())
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(PageResponse.class)
+                .consumeWith(response -> {
+                    PageResponse<?> page = response.getResponseBody();
+                    assert page != null;
+                    Assertions.assertThat(page.getContent()).isNotEmpty();
+                    Assertions.assertThat(page.getPage()).isEqualTo(0);
+                    Assertions.assertThat(page.getSize()).isEqualTo(10);
+                });
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenInvalidPagination() {
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "-1")
+                        .queryParam("size", "0")
+                        .build())
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldUpdateLoanAppSuccessfully() {
+        when(loanAppUseCase.updateLoanApp(updateRequest.getId(), updateRequest.getName().getDisplayName()))
+                .thenReturn(Mono.just(responseLoan));
+
+        webTestClient.put()
+                .uri(loanAppPath.getLoanApplication())
+                .bodyValue(updateRequest)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(LoanApplication.class)
+                .consumeWith(response -> {
+                    LoanApplication loanApp = response.getResponseBody();
+                    assert loanApp != null;
+                    Assertions.assertThat(loanApp.getId()).isEqualTo(updateRequest.getId());
+                });
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenUpdateLoanAppWithInvalidRequest() {
+        UpdateLoanAppReq invalidRequest = UpdateLoanAppReq.builder()
+                .id(null)
+                .name(null)
+                .build();
+
+        webTestClient.put()
+                .uri(loanAppPath.getLoanApplication())
+                .bodyValue(invalidRequest)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenUpdateLoanAppFails() {
+        when(loanAppUseCase.updateLoanApp(updateRequest.getId(), updateRequest.getName().getDisplayName()))
+                .thenReturn(Mono.empty());
+
+        webTestClient.put()
+                .uri(loanAppPath.getLoanApplication())
+                .bodyValue(updateRequest)
                 .exchange()
                 .expectStatus().isBadRequest();
     }

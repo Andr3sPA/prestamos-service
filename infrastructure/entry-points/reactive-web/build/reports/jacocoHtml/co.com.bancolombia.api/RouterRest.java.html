@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RouterRest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">reactive-web</a> &gt; <a href="index.source.html" class="el_package">co.com.bancolombia.api</a> &gt; <span class="el_source">RouterRest.java</span></div><h1>RouterRest.java</h1><pre class="source lang-java linenums">package co.com.bancolombia.api;
+
+import co.com.bancolombia.api.filter.GlobalExceptionFilter;
+import co.com.bancolombia.api.config.LoanAppPath;
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.dto.LoanApplicationRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springdoc.core.annotations.RouterOperation;
+import org.springdoc.core.annotations.RouterOperations;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.ServerResponse;
+
+import lombok.RequiredArgsConstructor;
+
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
+import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+
+import lombok.RequiredArgsConstructor;
+
+import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+
+@Configuration
+@RequiredArgsConstructor
+public class RouterRest {
+
+    private final LoanAppPath loanAppPath;
+    private final GlobalExceptionFilter globalExceptionFilter;
+    @Bean
+    @RouterOperations({
+            @RouterOperation(
+                    path = &quot;/api/v1/solicitud&quot;,
+                    produces = { MediaType.APPLICATION_JSON_VALUE },
+                    method = RequestMethod.POST,
+                    beanClass = HandlerLoanApp.class,
+                    beanMethod = &quot;saveLoanApp&quot;,
+                    operation = @Operation(
+                            operationId = &quot;saveLoanApp&quot;,
+                            summary = &quot;Crear solicitud de préstamo&quot;,
+                            description = &quot;Crea una nueva solicitud de préstamo en el sistema&quot;,
+                            requestBody = @RequestBody(
+                                    required = true,
+                                    content = @Content(
+                                            schema = @Schema(implementation = LoanApplicationRequest.class)
+                                    )
+                            ),
+                            responses = {
+                                    @ApiResponse(
+                                            responseCode = &quot;200&quot;,
+                                            description = &quot;Solicitud creada correctamente&quot;,
+                                            content = @Content(
+                                                    schema = @Schema(implementation = LoanApplication.class)
+                                            )
+                                    ),
+                                    @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Datos inválidos&quot;)
+                            }
+                    )
+            )
+    })
+    public RouterFunction&lt;ServerResponse&gt; routerFunction(HandlerLoanApp handlerLoanApp) {
+<span class="fc" id="L68">        return route(POST(loanAppPath.getLoanApplication()), handlerLoanApp::saveLoanApp)</span>
+<span class="fc" id="L69">                .andRoute(GET(loanAppPath.getLoanApplication()), handlerLoanApp::getLoanApps)</span>
+<span class="fc" id="L70">                .andRoute(PUT(loanAppPath.getLoanApplication()), handlerLoanApp::updateLoanApp)</span>
+<span class="fc" id="L71">                .filter(globalExceptionFilter);</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

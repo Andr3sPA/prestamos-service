@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.api.RouterRestTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:57:37.631Z" hostname="codespaces-915fc9" time="4.601">
+  <properties/>
+  <testcase name="shouldGetLoanAppsWithCustomPagination()" classname="co.com.bancolombia.api.RouterRestTest" time="3.055"/>
+  <testcase name="shouldReturnBadRequestWhenEmailMismatch()" classname="co.com.bancolombia.api.RouterRestTest" time="0.929"/>
+  <testcase name="shouldReturnBadRequestWhenInvalidRequest()" classname="co.com.bancolombia.api.RouterRestTest" time="0.114"/>
+  <testcase name="shouldReturnBadRequestWhenMissingHeader()" classname="co.com.bancolombia.api.RouterRestTest" time="0.04"/>
+  <testcase name="shouldGetLoanAppsWithDefaultPagination()" classname="co.com.bancolombia.api.RouterRestTest" time="0.026"/>
+  <testcase name="shouldReturnBadRequestWhenInvalidPagination()" classname="co.com.bancolombia.api.RouterRestTest" time="0.032"/>
+  <testcase name="shouldReturnBadRequestWhenUpdateLoanAppWithInvalidRequest()" classname="co.com.bancolombia.api.RouterRestTest" time="0.164"/>
+  <testcase name="shouldReturnBadRequestWhenUpdateLoanAppFails()" classname="co.com.bancolombia.api.RouterRestTest" time="0.031"/>
+  <testcase name="shouldUpdateLoanAppSuccessfully()" classname="co.com.bancolombia.api.RouterRestTest" time="0.058"/>
+  <testcase name="shouldCreateLoanApplication()" classname="co.com.bancolombia.api.RouterRestTest" time="0.073"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-09-09T20:57:18.528Z  INFO 53688 --- [    Test worker] co.com.bancolombia.api.RouterRestTest    : Starting RouterRestTest using Java 17.0.10 with PID 53688 (started by codespace in /workspaces/prestamos-service/infrastructure/entry-points/reactive-web)
+2025-09-09T20:57:18.630Z  INFO 53688 --- [    Test worker] co.com.bancolombia.api.RouterRestTest    : No active profile set, falling back to 1 default profile: "default"
+2025-09-09T20:57:37.554Z  INFO 53688 --- [    Test worker] co.com.bancolombia.api.RouterRestTest    : Started RouterRestTest in 24.997 seconds (process running for 56.995)
+2025-09-09T20:57:41.280Z  WARN 53688 --- [     parallel-2] jakarta.persistence.spi                  : jakarta.persistence.spi::No valid providers found.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

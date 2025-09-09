@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HandlerLoanApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaReactivo</a> &gt; <a href="index.source.html" class="el_package">co.com.bancolombia.api</a> &gt; <span class="el_source">HandlerLoanApp.java</span></div><h1>HandlerLoanApp.java</h1><pre class="source lang-java linenums">package co.com.bancolombia.api;
+
+import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.dto.UpdateLoanAppReq;
+import co.com.bancolombia.model.LoanApplication;
+import co.com.bancolombia.dto.LoanApplicationRequest;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
+import co.com.bancolombia.usecase.loanApplication.LoanAppUseCase;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import co.com.bancolombia.api.util.RequestValidator;
+
+import java.util.Optional;
+
+@Component
+@RequiredArgsConstructor
+public class HandlerLoanApp {
+    private final RequestValidator requestValidator;
+    private final LoanAppUseCase loanAppCase;
+    private final LoanApplicationRequestMapper requestMapper;
+    public Mono&lt;ServerResponse&gt; getLoanApps(ServerRequest req) {
+<span class="fc" id="L27">        int page = Integer.parseInt(req.queryParam(&quot;page&quot;).orElse(&quot;0&quot;));</span>
+<span class="fc" id="L28">        int size = Integer.parseInt(req.queryParam(&quot;size&quot;).orElse(&quot;10&quot;));</span>
+
+<span class="pc bpc" id="L30" title="1 of 4 branches missed.">        if (page &lt; 0 || size &lt;= 0) {</span>
+<span class="fc" id="L31">            return ServerResponse.badRequest().bodyValue(&quot;Parámetros de paginación inválidos&quot;);</span>
+        }
+
+<span class="fc" id="L34">        int offset = page * size;</span>
+<span class="fc" id="L35">        return loanAppCase.getLoanApps(offset, size, page)</span>
+<span class="fc" id="L36">            .flatMap(response -&gt;</span>
+<span class="fc" id="L37">                ServerResponse.ok()</span>
+<span class="fc" id="L38">                    .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L39">                    .bodyValue(response)</span>
+            );
+    }
+
+    public Mono&lt;ServerResponse&gt; saveLoanApp(ServerRequest serverRequest) {
+<span class="fc" id="L44">        String email = serverRequest.headers().firstHeader(&quot;X-User-Email&quot;);</span>
+<span class="fc" id="L45">        return serverRequest.bodyToMono(LoanApplicationRequest.class)</span>
+<span class="fc" id="L46">                .flatMap(dto-&gt;{</span>
+<span class="fc" id="L47">                    requestValidator.validate(dto,LoanApplicationRequest.class);</span>
+<span class="fc" id="L48">                    return Mono.just(dto);</span>
+                })
+<span class="fc" id="L50">                .map(requestMapper::toModel)</span>
+<span class="fc" id="L51">                .flatMap(model -&gt; loanAppCase.saveLoanApp(model, email))</span>
+<span class="fc" id="L52">                .flatMap(result -&gt; ServerResponse</span>
+<span class="fc" id="L53">                        .ok()</span>
+<span class="fc" id="L54">                        .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L55">                        .bodyValue(result));</span>
+    }
+    public Mono&lt;ServerResponse&gt; updateLoanApp(ServerRequest req){
+<span class="fc" id="L58">        return req.bodyToMono(UpdateLoanAppReq.class)</span>
+<span class="fc" id="L59">                .flatMap(dto-&gt;{</span>
+<span class="fc" id="L60">                    requestValidator.validate(dto,UpdateLoanAppReq.class);</span>
+<span class="fc" id="L61">                    return Mono.just(dto);</span>
+                })
+<span class="fc" id="L63">                .flatMap(body-&gt;loanAppCase.updateLoanApp(body.getId(), body.getName().getDisplayName()))</span>
+<span class="fc" id="L64">                .flatMap(result -&gt; ServerResponse</span>
+<span class="fc" id="L65">                        .ok()</span>
+<span class="fc" id="L66">                        .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L67">                        .bodyValue(result))</span>
+<span class="fc" id="L68">                .switchIfEmpty(ServerResponse.badRequest().bodyValue(&quot;No se pudo actualizar la solicitud&quot;));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
