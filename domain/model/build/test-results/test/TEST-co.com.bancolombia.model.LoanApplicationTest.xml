@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.model.LoanApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:43.982Z" hostname="codespaces-915fc9" time="0.224">
+<testsuite name="co.com.bancolombia.model.LoanApplicationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-09-10T16:06:45.875Z" hostname="codespaces-915fc9" time="0.254">
   <properties/>
-  <testcase name="testLoanApplicationBuilderAndFields()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.224"/>
+  <testcase name="testLoanApplicationNoArgsConstructor()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.156"/>
+  <testcase name="testLoanApplicationAllArgsConstructor()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.068"/>
+  <testcase name="testLoanApplicationSettersAndGetters()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.002"/>
+  <testcase name="testLoanApplicationBuilderAndFields()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.01"/>
+  <testcase name="testLoanApplicationWithNullValues()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.002"/>
+  <testcase name="testLoanApplicationPartialBuilder()" classname="co.com.bancolombia.model.LoanApplicationTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

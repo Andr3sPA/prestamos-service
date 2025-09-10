@@ -24,48 +24,52 @@ public class HandlerLoanApp {
     private final LoanAppUseCase loanAppCase;
     private final LoanApplicationRequestMapper requestMapper;
     public Mono&lt;ServerResponse&gt; getLoanApps(ServerRequest req) {
-<span class="fc" id="L27">        int page = Integer.parseInt(req.queryParam(&quot;page&quot;).orElse(&quot;0&quot;));</span>
-<span class="fc" id="L28">        int size = Integer.parseInt(req.queryParam(&quot;size&quot;).orElse(&quot;10&quot;));</span>
+        try {
+<span class="fc" id="L28">            int page = Integer.parseInt(req.queryParam(&quot;page&quot;).orElse(&quot;0&quot;));</span>
+<span class="fc" id="L29">            int size = Integer.parseInt(req.queryParam(&quot;size&quot;).orElse(&quot;10&quot;));</span>
 
-<span class="pc bpc" id="L30" title="1 of 4 branches missed.">        if (page &lt; 0 || size &lt;= 0) {</span>
-<span class="fc" id="L31">            return ServerResponse.badRequest().bodyValue(&quot;Parámetros de paginación inválidos&quot;);</span>
+<span class="fc bfc" id="L31" title="All 4 branches covered.">            if (page &lt; 0 || size &lt;= 0) {</span>
+<span class="fc" id="L32">                return ServerResponse.badRequest().bodyValue(&quot;Parámetros de paginación inválidos&quot;);</span>
+            }
+
+<span class="fc" id="L35">            int offset = page * size;</span>
+<span class="fc" id="L36">            return loanAppCase.getLoanApps(offset, size, page)</span>
+<span class="fc" id="L37">                .flatMap(response -&gt;</span>
+<span class="fc" id="L38">                    ServerResponse.ok()</span>
+<span class="fc" id="L39">                        .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L40">                        .bodyValue(response)</span>
+                );
+<span class="fc" id="L42">        } catch (NumberFormatException e) {</span>
+<span class="fc" id="L43">            return ServerResponse.badRequest().bodyValue(&quot;Parámetros de paginación inválidos&quot;);</span>
         }
-
-<span class="fc" id="L34">        int offset = page * size;</span>
-<span class="fc" id="L35">        return loanAppCase.getLoanApps(offset, size, page)</span>
-<span class="fc" id="L36">            .flatMap(response -&gt;</span>
-<span class="fc" id="L37">                ServerResponse.ok()</span>
-<span class="fc" id="L38">                    .contentType(MediaType.APPLICATION_JSON)</span>
-<span class="fc" id="L39">                    .bodyValue(response)</span>
-            );
     }
 
     public Mono&lt;ServerResponse&gt; saveLoanApp(ServerRequest serverRequest) {
-<span class="fc" id="L44">        String email = serverRequest.headers().firstHeader(&quot;X-User-Email&quot;);</span>
-<span class="fc" id="L45">        return serverRequest.bodyToMono(LoanApplicationRequest.class)</span>
-<span class="fc" id="L46">                .flatMap(dto-&gt;{</span>
-<span class="fc" id="L47">                    requestValidator.validate(dto,LoanApplicationRequest.class);</span>
-<span class="fc" id="L48">                    return Mono.just(dto);</span>
+<span class="fc" id="L48">        String email = serverRequest.headers().firstHeader(&quot;X-User-Email&quot;);</span>
+<span class="fc" id="L49">        return serverRequest.bodyToMono(LoanApplicationRequest.class)</span>
+<span class="fc" id="L50">                .flatMap(dto-&gt;{</span>
+<span class="fc" id="L51">                    requestValidator.validate(dto,LoanApplicationRequest.class);</span>
+<span class="fc" id="L52">                    return Mono.just(dto);</span>
                 })
-<span class="fc" id="L50">                .map(requestMapper::toModel)</span>
-<span class="fc" id="L51">                .flatMap(model -&gt; loanAppCase.saveLoanApp(model, email))</span>
-<span class="fc" id="L52">                .flatMap(result -&gt; ServerResponse</span>
-<span class="fc" id="L53">                        .ok()</span>
-<span class="fc" id="L54">                        .contentType(MediaType.APPLICATION_JSON)</span>
-<span class="fc" id="L55">                        .bodyValue(result));</span>
+<span class="fc" id="L54">                .map(requestMapper::toModel)</span>
+<span class="fc" id="L55">                .flatMap(model -&gt; loanAppCase.saveLoanApp(model, email))</span>
+<span class="fc" id="L56">                .flatMap(result -&gt; ServerResponse</span>
+<span class="fc" id="L57">                        .ok()</span>
+<span class="fc" id="L58">                        .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L59">                        .bodyValue(result));</span>
     }
     public Mono&lt;ServerResponse&gt; updateLoanApp(ServerRequest req){
-<span class="fc" id="L58">        return req.bodyToMono(UpdateLoanAppReq.class)</span>
-<span class="fc" id="L59">                .flatMap(dto-&gt;{</span>
-<span class="fc" id="L60">                    requestValidator.validate(dto,UpdateLoanAppReq.class);</span>
-<span class="fc" id="L61">                    return Mono.just(dto);</span>
+<span class="fc" id="L62">        return req.bodyToMono(UpdateLoanAppReq.class)</span>
+<span class="fc" id="L63">                .flatMap(dto-&gt;{</span>
+<span class="fc" id="L64">                    requestValidator.validate(dto,UpdateLoanAppReq.class);</span>
+<span class="fc" id="L65">                    return Mono.just(dto);</span>
                 })
-<span class="fc" id="L63">                .flatMap(body-&gt;loanAppCase.updateLoanApp(body.getId(), body.getName().getDisplayName()))</span>
-<span class="fc" id="L64">                .flatMap(result -&gt; ServerResponse</span>
-<span class="fc" id="L65">                        .ok()</span>
-<span class="fc" id="L66">                        .contentType(MediaType.APPLICATION_JSON)</span>
-<span class="fc" id="L67">                        .bodyValue(result))</span>
-<span class="fc" id="L68">                .switchIfEmpty(ServerResponse.badRequest().bodyValue(&quot;No se pudo actualizar la solicitud&quot;));</span>
+<span class="fc" id="L67">                .flatMap(body-&gt;loanAppCase.updateLoanApp(body.getId(), body.getName().getDisplayName()))</span>
+<span class="fc" id="L68">                .flatMap(result -&gt; ServerResponse</span>
+<span class="fc" id="L69">                        .ok()</span>
+<span class="fc" id="L70">                        .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L71">                        .bodyValue(result))</span>
+<span class="fc" id="L72">                .switchIfEmpty(ServerResponse.badRequest().bodyValue(&quot;No se pudo actualizar la solicitud&quot;));</span>
     }
 
 }

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class LoanApplication {
     private Long id;
     private BigDecimal amount;
-    private Integer term;
+    private int term;
     private String email;
     private State state;
     private LoanType loanType;

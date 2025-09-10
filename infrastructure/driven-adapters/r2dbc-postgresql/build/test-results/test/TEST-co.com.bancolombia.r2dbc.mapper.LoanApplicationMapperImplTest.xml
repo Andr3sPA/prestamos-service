@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" tests="6" skipped="0" failures="1" errors="0" timestamp="2025-09-10T21:12:48.581Z" hostname="codespaces-915fc9" time="0.096">
+  <properties/>
+  <testcase name="toEntity_shouldHandleNullStateAndLoanType()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.008"/>
+  <testcase name="toModel_shouldMapAllFields()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.001"/>
+  <testcase name="toEntity_shouldReturnNullWhenModelIsNull()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.001"/>
+  <testcase name="toEntity_shouldMapAllFields()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.001"/>
+  <testcase name="toModel_shouldReturnNullWhenEntityIsNull()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.001"/>
+  <testcase name="toModel_shouldHandleNullIds()" classname="co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest" time="0.063">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;co.com.bancolombia.model.State@566dc0c3&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;co.com.bancolombia.model.State@566dc0c3&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:30)
+	at app//org.junit.jupiter.api.Assertions.assertNull(Assertions.java:279)
+	at app//co.com.bancolombia.r2dbc.mapper.LoanApplicationMapperImplTest.toModel_shouldHandleNullIds(LoanApplicationMapperImplTest.java:93)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

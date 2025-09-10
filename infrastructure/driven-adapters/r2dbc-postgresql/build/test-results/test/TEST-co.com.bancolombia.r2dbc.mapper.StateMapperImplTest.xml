@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.r2dbc.mapper.StateMapperImplTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-09-10T21:12:48.768Z" hostname="codespaces-915fc9" time="0.018">
+  <properties/>
+  <testcase name="toModel_shouldMapAllFields()" classname="co.com.bancolombia.r2dbc.mapper.StateMapperImplTest" time="0.007"/>
+  <testcase name="toEntity_shouldReturnNullWhenModelIsNull()" classname="co.com.bancolombia.r2dbc.mapper.StateMapperImplTest" time="0.0"/>
+  <testcase name="toEntity_shouldMapAllFields()" classname="co.com.bancolombia.r2dbc.mapper.StateMapperImplTest" time="0.007"/>
+  <testcase name="toModel_shouldReturnNullWhenEntityIsNull()" classname="co.com.bancolombia.r2dbc.mapper.StateMapperImplTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

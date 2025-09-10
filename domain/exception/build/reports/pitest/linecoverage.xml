@@ -1,3 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <coverage>
+<block classname='co.com.bancolombia.exception.BaseException' method='getStatus()I' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='11'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='10'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='13'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='12'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/time/Instant;)V' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='getTitle()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/time/Instant;)V' number='1'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='3'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='2'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='5'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='4'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='getErrors()Ljava/util/List;' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='7'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='6'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='9'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='8'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;I)V' number='2'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;I)V' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='1'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='&lt;init&gt;(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;I)V' number='1'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='testExceptionProperties()V' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='&lt;init&gt;()V' number='1'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest' method='&lt;init&gt;()V' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundException' method='&lt;init&gt;(Ljava/lang/Long;)V' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='getMessage()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.BaseException' method='getErrorCode()Ljava/lang/String;' number='0'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundException' method='&lt;init&gt;(Ljava/lang/Long;)V' number='2'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
+<block classname='co.com.bancolombia.exception.LoanApplicationNotFoundException' method='&lt;init&gt;(Ljava/lang/Long;)V' number='1'><tests>
+<test name='co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest.[engine:junit-jupiter]/[class:co.com.bancolombia.exception.LoanApplicationNotFoundExceptionTest]/[method:testExceptionProperties()]'/>
+</tests>
+</block>
 </coverage>

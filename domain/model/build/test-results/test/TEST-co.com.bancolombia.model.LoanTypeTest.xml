@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.model.LoanTypeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:44.241Z" hostname="codespaces-915fc9" time="0.009">
+<testsuite name="co.com.bancolombia.model.LoanTypeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-10T16:06:46.144Z" hostname="codespaces-915fc9" time="0.014">
   <properties/>
-  <testcase name="testLoanTypeBuilderAndFields()" classname="co.com.bancolombia.model.LoanTypeTest" time="0.009"/>
+  <testcase name="testLoanTypeBuilderAndFields()" classname="co.com.bancolombia.model.LoanTypeTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

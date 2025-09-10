@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.api.util.RequestValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:57:44.517Z" hostname="codespaces-915fc9" time="0.182">
+<testsuite name="co.com.bancolombia.api.util.RequestValidatorTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-09-10T15:22:09.310Z" hostname="codespaces-915fc9" time="0.194">
   <properties/>
-  <testcase name="shouldThrowExceptionForNullAmount()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.082"/>
-  <testcase name="shouldThrowExceptionForInvalidEmail()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.042"/>
-  <testcase name="shouldValidateCorrectRequest()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.051"/>
+  <testcase name="shouldThrowExceptionForNullAmount()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.019"/>
+  <testcase name="shouldThrowExceptionForNegativeTerm()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.015"/>
+  <testcase name="shouldThrowExceptionForInvalidEmail()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.014"/>
+  <testcase name="shouldValidateCorrectRequest()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.024"/>
+  <testcase name="shouldThrowExceptionForZeroTerm()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.027"/>
+  <testcase name="shouldThrowExceptionForNegativeAmount()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.016"/>
+  <testcase name="shouldThrowExceptionForEmptyEmail()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.029"/>
+  <testcase name="shouldThrowExceptionForBlankEmail()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.023"/>
+  <testcase name="shouldThrowExceptionForNullLoanTypeId()" classname="co.com.bancolombia.api.util.RequestValidatorTest" time="0.018"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

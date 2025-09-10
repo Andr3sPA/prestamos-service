@@ -23,6 +23,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.http.MediaType;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -132,6 +133,10 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenInvalidRequest() {
+        // Mock to return success when validation is bypassed
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
+                .thenReturn(Mono.just(responseLoan));
+
         LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
                 .amount(BigDecimal.valueOf(-1000))
                 .term(0)
@@ -146,7 +151,12 @@ class RouterRestTest {
                 .header("X-User-Email", "correo-no-valido")
                 .bodyValue(invalidRequest)
                 .exchange()
-                .expectStatus().isBadRequest();
+                .expectStatus().isBadRequest()
+                .expectBody(String.class)
+                .consumeWith(body -> {
+                    assert body.getResponseBody() != null;
+                    assert !body.getResponseBody().isEmpty();
+                });
     }
 
     @Test
@@ -233,7 +243,9 @@ class RouterRestTest {
                         .queryParam("size", "0")
                         .build())
                 .exchange()
-                .expectStatus().isBadRequest();
+                .expectStatus().isBadRequest()
+                .expectBody(String.class)
+                .isEqualTo("Parámetros de paginación inválidos");
     }
 
     @Test
@@ -256,6 +268,10 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenUpdateLoanAppWithInvalidRequest() {
+        // Mock to return success when validation is bypassed
+        when(loanAppUseCase.updateLoanApp(any(), any()))
+                .thenReturn(Mono.just(responseLoan));
+
         UpdateLoanAppReq invalidRequest = UpdateLoanAppReq.builder()
                 .id(null)
                 .name(null)
@@ -265,7 +281,12 @@ class RouterRestTest {
                 .uri(loanAppPath.getLoanApplication())
                 .bodyValue(invalidRequest)
                 .exchange()
-                .expectStatus().isBadRequest();
+                .expectStatus().isBadRequest()
+                .expectBody(String.class)
+                .consumeWith(body -> {
+                    assert body.getResponseBody() != null;
+                    assert !body.getResponseBody().isEmpty();
+                });
     }
 
     @Test
@@ -276,6 +297,147 @@ class RouterRestTest {
         webTestClient.put()
                 .uri(loanAppPath.getLoanApplication())
                 .bodyValue(updateRequest)
+                .exchange()
+                .expectStatus().isBadRequest()
+                .expectBody(String.class)
+                .isEqualTo("No se pudo actualizar la solicitud");
+    }
+
+    @Test
+    void shouldHandleBoundaryPaginationValues() {
+        // Test page=0, size=1 (minimum valid values)
+        when(loanAppUseCase.getLoanApps(0, 1, 0)).thenReturn(Mono.just(pageResponse));
+
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "0")
+                        .queryParam("size", "1")
+                        .build())
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void shouldHandleLargePaginationValues() {
+        // Test large values to ensure no overflow issues
+        when(loanAppUseCase.getLoanApps(1000, 100, 10)).thenReturn(Mono.just(pageResponse));
+
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "10")
+                        .queryParam("size", "100")
+                        .build())
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void shouldHandleEmptyResultFromUseCase() {
+        // Test when use case returns empty result
+        PageResponse<LoanApplication> emptyResponse = new PageResponse<>(List.of(), 0L, 0, 10);
+        when(loanAppUseCase.getLoanApps(0, 10, 0)).thenReturn(Mono.just(emptyResponse));
+
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication()).build())
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(PageResponse.class)
+                .consumeWith(response -> {
+                    PageResponse<?> page = response.getResponseBody();
+                    assert page != null;
+                    Assertions.assertThat(page.getContent()).isEmpty();
+                    Assertions.assertThat(page.getTotalElements()).isEqualTo(0L);
+                });
+    }
+
+    @Test
+    void shouldHandleUseCaseError() {
+        // Test when use case throws an error
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
+                .thenReturn(Mono.error(new RuntimeException("Database error")));
+
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                .header("X-User-Email", "client1@example.com")
+                .bodyValue(request)
+                .exchange()
+                .expectStatus().is5xxServerError();
+    }
+
+    @Test
+    void shouldHandleNullQueryParams() {
+        // Test with null query params (should default to 0 and 10)
+        when(loanAppUseCase.getLoanApps(0, 10, 0)).thenReturn(Mono.just(pageResponse));
+
+        webTestClient.get()
+                .uri(loanAppPath.getLoanApplication())
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void shouldHandleNegativeSizeOnly() {
+        // Test size=-1, page=0 (only size invalid)
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "0")
+                        .queryParam("size", "-1")
+                        .build())
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldHandleZeroSize() {
+        // Test size=0, page=0 (size <= 0)
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "0")
+                        .queryParam("size", "0")
+                        .build())
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenInvalidPageFormat() {
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "abc")
+                        .queryParam("size", "10")
+                        .build())
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenInvalidSizeFormat() {
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder.path(loanAppPath.getLoanApplication())
+                        .queryParam("page", "0")
+                        .queryParam("size", "abc")
+                        .build())
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenInvalidJsonInSave() {
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                .header("X-User-Email", "test@example.com")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue("{invalid json")
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenInvalidJsonInUpdate() {
+        webTestClient.put()
+                .uri(loanAppPath.getLoanApplication())
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue("{invalid json")
                 .exchange()
                 .expectStatus().isBadRequest();
     }

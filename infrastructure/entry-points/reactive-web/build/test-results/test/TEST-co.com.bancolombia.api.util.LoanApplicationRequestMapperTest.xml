@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.bancolombia.api.util.LoanApplicationRequestMapperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-10T15:22:09.277Z" hostname="codespaces-915fc9" time="0.03">
+  <properties/>
+  <testcase name="shouldMapDtoWithNullValues()" classname="co.com.bancolombia.api.util.LoanApplicationRequestMapperTest" time="0.023"/>
+  <testcase name="shouldMapDtoWithLargeValues()" classname="co.com.bancolombia.api.util.LoanApplicationRequestMapperTest" time="0.004"/>
+  <testcase name="shouldMapDtoToModel()" classname="co.com.bancolombia.api.util.LoanApplicationRequestMapperTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

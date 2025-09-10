@@ -24,20 +24,24 @@ public class HandlerLoanApp {
     private final LoanAppUseCase loanAppCase;
     private final LoanApplicationRequestMapper requestMapper;
     public Mono<ServerResponse> getLoanApps(ServerRequest req) {
-        int page = Integer.parseInt(req.queryParam("page").orElse("0"));
-        int size = Integer.parseInt(req.queryParam("size").orElse("10"));
+        try {
+            int page = Integer.parseInt(req.queryParam("page").orElse("0"));
+            int size = Integer.parseInt(req.queryParam("size").orElse("10"));
 
-        if (page < 0 || size <= 0) {
+            if (page < 0 || size <= 0) {
+                return ServerResponse.badRequest().bodyValue("Parámetros de paginación inválidos");
+            }
+
+            int offset = page * size;
+            return loanAppCase.getLoanApps(offset, size, page)
+                .flatMap(response ->
+                    ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(response)
+                );
+        } catch (NumberFormatException e) {
             return ServerResponse.badRequest().bodyValue("Parámetros de paginación inválidos");
         }
-
-        int offset = page * size;
-        return loanAppCase.getLoanApps(offset, size, page)
-            .flatMap(response ->
-                ServerResponse.ok()
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .bodyValue(response)
-            );
     }
 
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {

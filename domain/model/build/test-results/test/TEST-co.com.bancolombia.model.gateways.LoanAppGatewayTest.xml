@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.model.gateways.LoanAppGatewayTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:44.293Z" hostname="codespaces-915fc9" time="1.03">
+<testsuite name="co.com.bancolombia.model.gateways.LoanAppGatewayTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-10T16:06:46.267Z" hostname="codespaces-915fc9" time="1.192">
   <properties/>
-  <testcase name="testRegisterMethodSignature()" classname="co.com.bancolombia.model.gateways.LoanAppGatewayTest" time="1.03"/>
+  <testcase name="testRegisterMethodSignature()" classname="co.com.bancolombia.model.gateways.LoanAppGatewayTest" time="1.192"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

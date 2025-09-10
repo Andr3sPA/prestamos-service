@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:57:43.439Z" hostname="codespaces-915fc9" time="1.075">
+<testsuite name="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-09-10T15:22:08.707Z" hostname="codespaces-915fc9" time="0.568">
   <properties/>
-  <testcase name="shouldHandleEmailMismatchException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="1.07"/>
-  <testcase name="shouldHandleMissingFieldException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="0.003"/>
+  <testcase name="shouldHandleEmailMismatchException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="0.559"/>
+  <testcase name="shouldHandleBaseException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="0.002"/>
+  <testcase name="shouldHandleGenericException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="0.001"/>
+  <testcase name="shouldHandleMissingFieldException()" classname="co.com.bancolombia.api.filter.GlobalExceptionFilterTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

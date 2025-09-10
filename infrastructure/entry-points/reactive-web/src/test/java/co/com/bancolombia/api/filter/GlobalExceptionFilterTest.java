@@ -1,7 +1,9 @@
 package co.com.bancolombia.api.filter;
 
-import co.com.bancolombia.exception.EmailMismatchException;
+import co.com.bancolombia.exception.BaseException;
 import co.com.bancolombia.exception.MissingFieldException;
+import co.com.bancolombia.exception.EmailMismatchException;
+import co.com.bancolombia.api.response.ErrorResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.reactive.function.server.HandlerFunction;
@@ -27,15 +29,12 @@ class GlobalExceptionFilterTest {
     }
 
     @Test
-    void shouldHandleEmailMismatchException() {
-        // Arrange
-        EmailMismatchException exception = new EmailMismatchException("req@test.com", "session@test.com");
+    void shouldHandleBaseException() {
+        BaseException exception = new BaseException("ERR_CODE", "Title", "Message", null, 400);
         when(handler.handle(request)).thenReturn(Mono.error(exception));
 
-        // Act
         Mono<ServerResponse> result = filter.filter(request, handler);
 
-        // Assert
         StepVerifier.create(result)
                 .expectNextMatches(response -> response.statusCode().value() == 400)
                 .verifyComplete();
@@ -43,16 +42,37 @@ class GlobalExceptionFilterTest {
 
     @Test
     void shouldHandleMissingFieldException() {
-        // Arrange
-        MissingFieldException exception = new MissingFieldException("amount");
+        MissingFieldException exception = new MissingFieldException("fieldName");
         when(handler.handle(request)).thenReturn(Mono.error(exception));
 
-        // Act
         Mono<ServerResponse> result = filter.filter(request, handler);
 
-        // Assert
         StepVerifier.create(result)
                 .expectNextMatches(response -> response.statusCode().value() == 400)
                 .verifyComplete();
+    }
+
+    @Test
+    void shouldHandleEmailMismatchException() {
+        EmailMismatchException exception = new EmailMismatchException("request@example.com", "session@example.com");
+        when(handler.handle(request)).thenReturn(Mono.error(exception));
+
+        Mono<ServerResponse> result = filter.filter(request, handler);
+
+        StepVerifier.create(result)
+                .expectNextMatches(response -> response.statusCode().value() == 400)
+                .verifyComplete();
+    }
+
+    @Test
+    void shouldHandleGenericException() {
+        RuntimeException exception = new RuntimeException("Generic error");
+        when(handler.handle(request)).thenReturn(Mono.error(exception));
+
+        Mono<ServerResponse> result = filter.filter(request, handler);
+
+        StepVerifier.create(result)
+                .expectError(RuntimeException.class)
+                .verify();
     }
 }

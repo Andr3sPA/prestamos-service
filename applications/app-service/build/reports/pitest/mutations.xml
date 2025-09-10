@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mutations partial="true">
-<mutation detected='true' status='KILLED' numberOfTestsRun='1'><sourceFile>ObjectMapperConfig.java</sourceFile><mutatedClass>co.com.bancolombia.config.ObjectMapperConfig</mutatedClass><mutatedMethod>objectMapper</mutatedMethod><methodDescription>()Lorg/reactivecommons/utils/ObjectMapper;</methodDescription><lineNumber>15</lineNumber><mutator>org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator</mutator><indexes><index>6</index></indexes><blocks><block>1</block></blocks><killingTest>co.com.bancolombia.config.ObjectMapperConfigTest.[engine:junit-jupiter]/[class:co.com.bancolombia.config.ObjectMapperConfigTest]/[method:testObjectMapperBean()]</killingTest><description>replaced return value with null for co/com/bancolombia/config/ObjectMapperConfig::objectMapper</description></mutation>
-</mutations>

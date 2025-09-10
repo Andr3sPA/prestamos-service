@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.ArchitectureTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-09-09T20:55:36.025Z" hostname="codespaces-915fc9" time="1.264">
+<testsuite name="co.com.bancolombia.ArchitectureTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-09-10T21:12:53.032Z" hostname="codespaces-915fc9" time="1.183">
   <properties/>
-  <testcase name="domainClassesShouldNotBeNamedWithToolNames()" classname="co.com.bancolombia.ArchitectureTest" time="0.289"/>
-  <testcase name="domainClassesShouldNotHaveFieldsNamedWithToolNames()" classname="co.com.bancolombia.ArchitectureTest" time="0.084"/>
-  <testcase name="useCaseFinalFields()" classname="co.com.bancolombia.ArchitectureTest" time="0.022"/>
-  <testcase name="beansShouldOnlyHaveFinalFields()" classname="co.com.bancolombia.ArchitectureTest" time="0.039"/>
-  <testcase name="reactiveFlowsShouldUseAwsAsyncClients()" classname="co.com.bancolombia.ArchitectureTest" time="0.181"/>
-  <testcase name="domainClassesShouldNotBeNamedWithTechSuffixes()" classname="co.com.bancolombia.ArchitectureTest" time="0.04"/>
-  <system-out><![CDATA[20:55:21.210 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 17.0.10
+  <testcase name="domainClassesShouldNotBeNamedWithToolNames()" classname="co.com.bancolombia.ArchitectureTest" time="0.235"/>
+  <testcase name="domainClassesShouldNotHaveFieldsNamedWithToolNames()" classname="co.com.bancolombia.ArchitectureTest" time="0.062"/>
+  <testcase name="useCaseFinalFields()" classname="co.com.bancolombia.ArchitectureTest" time="0.023"/>
+  <testcase name="beansShouldOnlyHaveFinalFields()" classname="co.com.bancolombia.ArchitectureTest" time="0.033"/>
+  <testcase name="reactiveFlowsShouldUseAwsAsyncClients()" classname="co.com.bancolombia.ArchitectureTest" time="0.176"/>
+  <testcase name="domainClassesShouldNotBeNamedWithTechSuffixes()" classname="co.com.bancolombia.ArchitectureTest" time="0.035"/>
+  <system-out><![CDATA[21:12:33.150 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 17.0.10
 ]]></system-out>
-  <system-err><![CDATA[Sep 09, 2025 8:55:35 PM co.com.bancolombia.Utils findFiles
+  <system-err><![CDATA[Sep 10, 2025 9:12:53 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:36 PM co.com.bancolombia.Utils findFiles
+Sep 10, 2025 9:12:53 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:36 PM co.com.bancolombia.Utils findFiles
+Sep 10, 2025 9:12:53 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:36 PM co.com.bancolombia.Utils findFiles
+Sep 10, 2025 9:12:53 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:36 PM co.com.bancolombia.Utils findFiles
+Sep 10, 2025 9:12:53 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:37 PM co.com.bancolombia.Utils findFiles
+Sep 10, 2025 9:12:54 PM co.com.bancolombia.Utils findFiles
 INFO: begin -1, end 194, length 194
-Sep 09, 2025 8:55:37 PM co.com.bancolombia.ArchitectureTest checkWithWarning
+Sep 10, 2025 9:12:54 PM co.com.bancolombia.ArchitectureTest checkWithWarning
 WARNING: ARCHITECTURE_RULE_VIOLATED: This will cause a build error in future.
 Please review our wiki at https://bancolombia.github.io/scaffold-clean-architecture/docs/advanced/arch-unit-analysis
 java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'Rule_2.2: Domain classes should not be named with technology suffixes' was violated (1 times):

@@ -1,0 +1,27 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/testdb
+    username: testuser
+    password: testpass
+    properties:
+      sslMode: require
+
+adapters:
+  restconsumer:
+    timeout: 5000
+    url: http://localhost:8080
+  r2dbc:
+    host: localhost
+    port: 5432
+    database: testdb
+    schema: public
+    username: testuser
+    password: testpass
+    options: sslmode=require
+
+cors:
+  allowed-origins: "*"
+
+routes:
+  paths:
+    loanApplication: "/api/v1/solicitud"

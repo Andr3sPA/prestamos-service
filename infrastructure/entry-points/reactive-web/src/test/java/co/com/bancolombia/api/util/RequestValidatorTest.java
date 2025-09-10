@@ -59,7 +59,93 @@ class RequestValidatorTest {
                 .loanTypeId(1L)
                 .build();
 
-        assertThrows(MissingFieldException.class, () -> 
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+    @Test
+    void shouldThrowExceptionForNegativeAmount() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(-100))
+                .term(12)
+                .email("test@example.com")
+                .stateId(1L)
+                .loanTypeId(1L)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+    @Test
+    void shouldThrowExceptionForZeroTerm() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(5000))
+                .term(0)
+                .email("test@example.com")
+                .stateId(1L)
+                .loanTypeId(1L)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+    @Test
+    void shouldThrowExceptionForNegativeTerm() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(5000))
+                .term(-1)
+                .email("test@example.com")
+                .stateId(1L)
+                .loanTypeId(1L)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+
+
+    @Test
+    void shouldThrowExceptionForNullLoanTypeId() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(5000))
+                .term(12)
+                .email("test@example.com")
+                .stateId(1L)
+                .loanTypeId(null)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+    @Test
+    void shouldThrowExceptionForEmptyEmail() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(5000))
+                .term(12)
+                .email("")
+                .stateId(1L)
+                .loanTypeId(1L)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
+            requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
+    }
+
+    @Test
+    void shouldThrowExceptionForBlankEmail() {
+        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
+                .amount(BigDecimal.valueOf(5000))
+                .term(12)
+                .email("   ")
+                .stateId(1L)
+                .loanTypeId(1L)
+                .build();
+
+        assertThrows(MissingFieldException.class, () ->
             requestValidator.validate(invalidRequest, LoanApplicationRequest.class));
     }
 }

@@ -10,16 +10,16 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 @Component
 public class TransactionalAdapter implements TransactionalGateway {
-<span class="nc" id="L13">    private static final Logger log = LoggerFactory.getLogger(TransactionalAdapter.class);</span>
+<span class="fc" id="L13">    private static final Logger log = LoggerFactory.getLogger(TransactionalAdapter.class);</span>
     private final TransactionalOperator transactionalOperator;
 
 
     @Override
     public &lt;T&gt; Mono&lt;T&gt; transactional(Mono&lt;T&gt; action) {
-<span class="nc" id="L19">        log.trace(&quot;Iniciando transacción reactiva&quot;);</span>
-<span class="nc" id="L20">        return transactionalOperator.transactional(action)</span>
-<span class="nc" id="L21">            .doOnSuccess(result -&gt; log.trace(&quot;Transacción completada exitosamente: {}&quot;, result))</span>
-<span class="nc" id="L22">            .doOnError(error -&gt; log.error(&quot;Error en transacción reactiva&quot;, error));</span>
+<span class="fc" id="L19">        log.trace(&quot;Iniciando transacción reactiva&quot;);</span>
+<span class="fc" id="L20">        return transactionalOperator.transactional(action)</span>
+<span class="fc" id="L21">            .doOnSuccess(result -&gt; log.trace(&quot;Transacción completada exitosamente: {}&quot;, result))</span>
+<span class="fc" id="L22">            .doOnError(error -&gt; log.error(&quot;Error en transacción reactiva&quot;, error));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

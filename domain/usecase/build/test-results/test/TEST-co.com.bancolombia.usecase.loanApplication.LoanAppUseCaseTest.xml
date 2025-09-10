@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-09T21:28:03.746Z" hostname="codespaces-915fc9" time="7.203">
+<testsuite name="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-10T15:21:56.284Z" hostname="codespaces-915fc9" time="4.324">
   <properties/>
-  <testcase name="testGetLoanApps()" classname="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" time="7.166"/>
+  <testcase name="testGetLoanApps()" classname="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" time="4.284"/>
   <testcase name="testSaveLoanApp()" classname="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" time="0.014"/>
-  <testcase name="testUpdateLoanApp()" classname="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" time="0.015"/>
+  <testcase name="testUpdateLoanApp()" classname="co.com.bancolombia.usecase.loanApplication.LoanAppUseCaseTest" time="0.019"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
