@@ -82,10 +82,12 @@ public class LoanAppAdapter implements LoanAppGateway {
                         updated -> {
                             log.trace("Préstamo actualizado exitosamente: {}", updated);
                             // Enviar notificación a SQS usando SqsTemplate con el nombre de la cola
-                            String message =
-                                    String.format("{\"loanId\":%d,\"newState\":\"%s\"}",
-                                            updated.getId(),
-                                            updated.getState().getName());
+                            String message = String.format(
+                                    "{\"loanId\":%d,\"newState\":\"%s\",\"email\":\"%s\"}",
+                                    updated.getId(),
+                                    updated.getState().getName(),
+                                    updated.getEmail()
+                            );
                             sqsTemplate.send("update_request", message); })
                 .doOnError(error -> log.error("Error al actualizar préstamo", error));
     }
