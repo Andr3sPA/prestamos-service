@@ -4,7 +4,7 @@ import co.com.bancolombia.r2dbc.entity.LoanApplicationEntity;
 import co.com.bancolombia.r2dbc.entity.StateEntity;
 import org.springframework.data.relational.core.query.Query;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
-
+import io.awspring.cloud.sqs.operations.SqsTemplate;
 import co.com.bancolombia.model.PageResponse;
 import co.com.bancolombia.exception.EmailMismatchException;
 import co.com.bancolombia.model.LoanApplication;
@@ -30,6 +30,7 @@ public class LoanAppAdapter implements LoanAppGateway {
     private final LoanTypeMapper loanTypeMapper;
     private final StateMapper stateMapper;
     private final ObjectMapper mapper;
+    private final SqsTemplate sqsTemplate;
     private final R2dbcEntityTemplate template;
     private Mono<LoanApplication> enrichLoanApplication(LoanApplication loanApp) {
         return Mono.zip(
@@ -77,7 +78,15 @@ public class LoanAppAdapter implements LoanAppGateway {
                 )
                 .map(loanApplicationMapper::toModel)
                 .flatMap(this::enrichLoanApplication)
-                .doOnSuccess(updated -> log.trace("Préstamo actualizado exitosamente: {}", updated))
+                .doOnSuccess(
+                        updated -> {
+                            log.trace("Préstamo actualizado exitosamente: {}", updated);
+                            // Enviar notificación a SQS usando SqsTemplate con el nombre de la cola
+                            String message =
+                                    String.format("{\"loanId\":%d,\"newState\":\"%s\"}",
+                                            updated.getId(),
+                                            updated.getState().getName());
+                            sqsTemplate.send("update_request", message); })
                 .doOnError(error -> log.error("Error al actualizar préstamo", error));
     }
 

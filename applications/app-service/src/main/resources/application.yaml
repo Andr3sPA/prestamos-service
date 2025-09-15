@@ -1,13 +1,15 @@
 server:
   port: 8081
+  address: 0.0.0.0
 
 spring:
   application:
     name: "JavaReactivo"
+
   r2dbc:
-    url: r2dbc:postgresql://ep-rough-fire-aecwdwd0-pooler.c-2.us-east-2.aws.neon.tech:5432/neondb?sslmode=require
-    username: neondb_owner
-    password: npg_H6Yrtqn2Shbm
+    url: ${SPRING_R2DBC_URL}
+    username: ${SPRING_R2DBC_USERNAME}
+    password: ${SPRING_R2DBC_PASSWORD}
     properties:
       sslMode: require
 
@@ -27,7 +29,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,prometheus
+        include: health, prometheus
   endpoint:
     health:
       probes:
@@ -43,14 +45,14 @@ routes:
 adapters:
   restconsumer:
     timeout: 5000
-    url: http://localhost:8081
+    url: ${REST_CONSUMER_URL}
   r2dbc:
-    host: ep-rough-fire-aecwdwd0-pooler.c-2.us-east-2.aws.neon.tech
-    port: 5432
-    database: neondb
+    host: ${R2DBC_HOST}
+    port: ${R2DBC_PORT}
+    database: ${R2DBC_DATABASE}
     schema: public
-    username: neondb_owner
-    password: npg_H6Yrtqn2Shbm
+    username: ${SPRING_R2DBC_USERNAME}
+    password: ${SPRING_R2DBC_PASSWORD}
     options: sslmode=require
 
 springdoc:
@@ -59,4 +61,24 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     enabled: true
+
+# ===== Ajuste de AWS / SQS =====
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region:
+      static: ${AWS_REGION:us-east-1}
+    sqs:
+      queue-url: ${AWS_SQS_QUEUE_URL}
+
+# ===== Logging =====
+logging:
+  level:
+    root: INFO
+    co.com.bancolombia.r2dbc: DEBUG
+    io.awspring.cloud.sqs: WARN
+    org.springframework.r2dbc: WARN
+    reactor: INFO
 

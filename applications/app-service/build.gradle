@@ -26,3 +26,18 @@ bootJar {
     // Sets output jar name
     archiveFileName = "${project.getParent().getName()}.${archiveExtension.get()}"
 }
+tasks.named('bootRun') {
+    doFirst {
+        def envFile = file("${rootDir}/.env")
+        if (envFile.exists()) {
+            envFile.readLines().each { line ->
+                if (line && !line.startsWith("#")) {
+                    def parts = line.split("=", 2)
+                    if (parts.length == 2) {
+                        environment parts[0], parts[1]
+                    }
+                }
+            }
+        }
+    }
+}
