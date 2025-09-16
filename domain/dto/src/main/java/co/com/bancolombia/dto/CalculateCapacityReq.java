@@ -2,13 +2,13 @@ package co.com.bancolombia.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 public class CalculateCapacityReq {
     @NotNull(message = "El campo loanId es obligatorio")
     private Long loanId;

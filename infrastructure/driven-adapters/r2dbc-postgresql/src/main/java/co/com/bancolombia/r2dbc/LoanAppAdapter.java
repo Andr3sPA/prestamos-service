@@ -161,13 +161,13 @@ public class LoanAppAdapter implements LoanAppGateway {
                             log.trace("Request que se enviará a la Lambda: {}", request);
                             return request;
                         })
-                        .flatMap(calcularCapacidadRequest -> Mono.fromCallable(() -> service.calcularCapacidadEndeudamiento(calcularCapacidadRequest)))
+                        .flatMap(calcularCapacidadRequest ->
+                                Mono.fromCallable(() -> service.calcularCapacidadEndeudamiento(calcularCapacidadRequest)))
                         .map(response -> mapper.map(response, CalcularCapacidadResponse.class))
                         .doOnSuccess(result -> log.trace("Cálculo de capacidad de endeudamiento exitoso: {}", result))
                         .doOnError(error -> log.error("Error al calcular capacidad de endeudamiento", error));
             });
     }
-
 
     @Override
     public Mono<LoanApplication> register(LoanApplication loanApp,String email) {
@@ -201,6 +201,5 @@ public class LoanAppAdapter implements LoanAppGateway {
                     .doOnError(error -> log.error("Error al registrar préstamo", error));
         });
     }
-
 
 }

@@ -11,7 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CalcularCapacidadResponse {
-
+    @Setter
+    @Getter
     public static class PagoDTO {
         private Integer cuotaNum;
         private Double pagoTotal;
