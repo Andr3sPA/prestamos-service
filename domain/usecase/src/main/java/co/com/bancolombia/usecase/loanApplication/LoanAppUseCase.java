@@ -3,6 +3,8 @@ package co.com.bancolombia.usecase.loanApplication;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.model.PageResponse;
 import co.com.bancolombia.model.gateways.LoanAppGateway;
+import co.com.bancolombia.model.request.CalcularCapacidadRequest;
+import co.com.bancolombia.model.response.CalcularCapacidadResponse;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -17,6 +19,9 @@ public class LoanAppUseCase {
     }
     public Mono<LoanApplication> updateLoanApp(Long id, String state) {
         return loanAppGateway.update(id, state);
+    }
+    public Mono<CalcularCapacidadResponse> calcularCapacidadEndeudamiento(Long id, CalcularCapacidadRequest.UserDTO userDTO){
+        return loanAppGateway.calcularEndeudamiento(id,userDTO);
     }
 
 

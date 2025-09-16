@@ -13,7 +13,14 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
     implementation 'com.amazonaws:aws-java-sdk-sqs:1.12.742'
+    implementation 'com.amazonaws:aws-java-sdk-lambda:1.12.742'
     implementation 'io.awspring.cloud:spring-cloud-aws-starter-sqs:3.0.2'
     testImplementation 'org.reactivecommons.utils:object-mapper:0.1.0'
-}
 
+    // AWS SDK v2 - Lambda
+    implementation 'software.amazon.awssdk:lambda:2.20.0'
+
+    // (opcional, si quieres usar perfiles de AWS para credenciales, S3, etc.)
+    implementation 'software.amazon.awssdk:auth:2.20.0'
+    implementation 'software.amazon.awssdk:core:2.20.0'
+}

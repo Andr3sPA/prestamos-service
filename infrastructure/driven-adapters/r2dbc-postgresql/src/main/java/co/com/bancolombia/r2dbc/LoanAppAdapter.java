@@ -1,5 +1,10 @@
 package co.com.bancolombia.r2dbc;
 import co.com.bancolombia.exception.LoanApplicationNotFoundException;
+import co.com.bancolombia.model.LoanType;
+import co.com.bancolombia.model.State;
+import co.com.bancolombia.model.request.CalcularCapacidadRequest;
+import co.com.bancolombia.model.response.CalcularCapacidadResponse;
+import co.com.bancolombia.r2dbc.aws.CapacidadEndeudService;
 import co.com.bancolombia.r2dbc.entity.LoanApplicationEntity;
 import co.com.bancolombia.r2dbc.entity.StateEntity;
 import org.springframework.data.relational.core.query.Query;
@@ -19,6 +24,11 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import org.reactivecommons.utils.ObjectMapper;
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder;
+import com.amazonaws.services.lambda.invoke.LambdaInvokerFactory;
+
+import java.util.List;
+
 @RequiredArgsConstructor
 @Repository
 public class LoanAppAdapter implements LoanAppGateway {
@@ -90,6 +100,72 @@ public class LoanAppAdapter implements LoanAppGateway {
                             );
                             sqsTemplate.send("update_request", message); })
                 .doOnError(error -> log.error("Error al actualizar préstamo", error));
+    }
+
+    @Override
+    public Mono<CalcularCapacidadResponse> calcularEndeudamiento(Long id, CalcularCapacidadRequest.UserDTO userDTO) {
+        return repoLoanApp.findById(id)
+            .switchIfEmpty(Mono.error(new LoanApplicationNotFoundException(id)))
+            .map(loanApplicationMapper::toModel)
+            .flatMap(loanApp -> {
+                if (loanApp.getState().getId() == null) {
+                    loanApp.getState().setId(1L);
+                }
+                log.trace("Iniciando cálculo de capacidad de endeudamiento para el préstamo: {}", loanApp);
+                CapacidadEndeudService service = LambdaInvokerFactory.builder()
+                        .lambdaClient(AWSLambdaClientBuilder.defaultClient())
+                        .build(CapacidadEndeudService.class);
+
+                Mono<LoanType> loanTypeMono = repoLoanType.findById(loanApp.getLoanType().getId())
+                        .map(loanTypeMapper::toModel);
+                Mono<State> stateMono = repoState.findById(loanApp.getState().getId())
+                        .map(stateMapper::toModel);
+
+                Flux<CalcularCapacidadRequest.ExistingLoanDTO> existingLoansFlux = repoLoanApp.findByEmail(loanApp.getEmail())
+                        .filter(existing -> !existing.getId().equals(loanApp.getId()))
+                        .flatMap(entity -> repoLoanType.findById(entity.getLoanTypeId())
+                                .map(loanTypeEntity -> new CalcularCapacidadRequest.ExistingLoanDTO(
+                                        entity.getAmount() != null ? entity.getAmount().doubleValue() : 0.0,
+                                        entity.getTerm(),
+                                        loanTypeEntity.getInterestRate() != null ? loanTypeEntity.getInterestRate().doubleValue() : 0.0
+                                ))
+                        );
+
+                Mono<List<CalcularCapacidadRequest.ExistingLoanDTO>> existingLoansListMono = existingLoansFlux.collectList();
+
+                return Mono.zip(loanTypeMono, stateMono, existingLoansListMono)
+                        .map(tuple -> {
+                            LoanType loanType = tuple.getT1();
+                            State state = tuple.getT2();
+                            List<CalcularCapacidadRequest.ExistingLoanDTO> existingLoansList = tuple.getT3();
+
+                            CalcularCapacidadRequest request = CalcularCapacidadRequest.builder()
+                                    .user(new CalcularCapacidadRequest.UserDTO(userDTO.getUserId(), userDTO.getBaseSalary()))
+                                    .application(new CalcularCapacidadRequest.ApplicationDTO(
+                                            loanApp.getId(),
+                                            loanApp.getAmount(),
+                                            loanApp.getTerm() != null ? loanApp.getTerm() : 12,
+                                            loanApp.getEmail(),
+                                            state.getId(),
+                                            new CalcularCapacidadRequest.LoanTypeDTO(
+                                                    loanApp.getLoanType().getId(),
+                                                    loanType.getName(),
+                                                    loanType.getMinimumAmount(),
+                                                    loanType.getMaximumAmount(),
+                                                    loanType.getInterestRate(),
+                                                    true
+                                            )
+                                    ))
+                                    .existingLoans(existingLoansList)
+                                    .build();
+                            log.trace("Request que se enviará a la Lambda: {}", request);
+                            return request;
+                        })
+                        .flatMap(calcularCapacidadRequest -> Mono.fromCallable(() -> service.calcularCapacidadEndeudamiento(calcularCapacidadRequest)))
+                        .map(response -> mapper.map(response, CalcularCapacidadResponse.class))
+                        .doOnSuccess(result -> log.trace("Cálculo de capacidad de endeudamiento exitoso: {}", result))
+                        .doOnError(error -> log.error("Error al calcular capacidad de endeudamiento", error));
+            });
     }
 
 

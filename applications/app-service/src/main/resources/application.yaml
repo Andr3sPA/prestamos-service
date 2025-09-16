@@ -41,7 +41,7 @@ cors:
 routes:
   paths:
     loanApplication: "/api/v1/solicitud"
-
+    loanCapacity: "/api/v1/calcular-capacidad"
 adapters:
   restconsumer:
     timeout: 5000

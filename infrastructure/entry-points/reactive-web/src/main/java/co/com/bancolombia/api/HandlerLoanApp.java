@@ -1,5 +1,6 @@
 package co.com.bancolombia.api;
 
+import co.com.bancolombia.dto.CalculateCapacityReq;
 import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.dto.UpdateLoanAppReq;
 import co.com.bancolombia.model.LoanApplication;
@@ -63,5 +64,19 @@ public class HandlerLoanApp {
                         .bodyValue(result))
                 .switchIfEmpty(ServerResponse.badRequest().bodyValue("No se pudo actualizar la solicitud"));
     }
+    public Mono<ServerResponse> calcularCapacidad(ServerRequest serverRequest) {
+        Long userId = Long.valueOf(serverRequest.headers().firstHeader("X-User-Id"));
+        Double salary = Double.valueOf(serverRequest.headers().firstHeader("X-User-Salary"));
 
+        return serverRequest.bodyToMono(CalculateCapacityReq.class)
+                .flatMap(dto->{
+                    requestValidator.validate(dto, CalculateCapacityReq.class);
+                    return Mono.just(dto);
+                })
+                .flatMap(model -> loanAppCase.calcularCapacidadEndeudamiento(model.getLoanId(), new co.com.bancolombia.model.request.CalcularCapacidadRequest.UserDTO(userId,salary)))
+                .flatMap(result -> ServerResponse
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(result));
+    }
 }
