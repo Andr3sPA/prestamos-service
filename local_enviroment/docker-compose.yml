@@ -1,27 +1,20 @@
+version: '3.8'
 services:
-  postgres17_db:
-    image: postgres:17
-    container_name: postgres17_db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: "test"
-      POSTGRES_USER: "test"
-      POSTGRES_PASSWORD: "P@55w0rd"
+  prestamos-service:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: prestamos-service
     ports:
-      - "5432:5432"
-    volumes:
-      - postgres17_db_data:/var/lib/postgresql/data
+      - "8081:8081"
+    env_file:
+      - ../.env
 
-  pgadmin4:
-    image: elestio/pgadmin:REL-9_6
-    container_name: pgadminREL_9_6_db
-    restart: unless-stopped
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "test@test.com"
-      PGADMIN_DEFAULT_PASSWORD: "test"
-      PGADMIN_LISTEN_PORT: 8080
-    ports:
-      - "8088:8080"
+    networks:
+      - backend
 
-volumes:
-  postgres17_db_data:
+networks:
+  backend:
+    driver: bridge
+
+
