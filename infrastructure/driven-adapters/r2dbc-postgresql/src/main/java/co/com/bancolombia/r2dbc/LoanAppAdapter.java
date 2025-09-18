@@ -74,12 +74,12 @@ public class LoanAppAdapter implements LoanAppGateway {
     }
 
     @Override
-    public Mono<LoanApplication> update(Long id, String name) {
-        log.trace("Iniciando actualización de préstamo con ID {}: nuevo estado '{}'", id, name);
+    public Mono<LoanApplication> update(Long id, String state) {
+        log.trace("Iniciando actualización de préstamo con ID {}: nuevo estado '{}'", id, state);
         return repoLoanApp.findById(id)
                 .switchIfEmpty(Mono.error(new LoanApplicationNotFoundException(id)))
                 .flatMap(existing ->
-                        repoState.findByName(name)
+                        repoState.findByName(state)
                                 .map(StateEntity::getId)
                                 .flatMap(stateId -> {
                                     existing.setStateId(stateId);
@@ -88,19 +88,22 @@ public class LoanAppAdapter implements LoanAppGateway {
                 )
                 .map(loanApplicationMapper::toModel)
                 .flatMap(this::enrichLoanApplication)
-                .doOnSuccess(
-                        updated -> {
-                            log.trace("Préstamo actualizado exitosamente: {}", updated);
-                            // Enviar notificación a SQS usando SqsTemplate con el nombre de la cola
-                            String message = String.format(
-                                    "{\"loanId\":%d,\"newState\":\"%s\",\"email\":\"%s\"}",
-                                    updated.getId(),
-                                    updated.getState().getName(),
-                                    updated.getEmail()
-                            );
-                            sqsTemplate.send("update_request", message); })
+                .doOnSuccess(updated -> {
+                    log.trace("Préstamo actualizado exitosamente: {}", updated);
+                    String message = String.format(
+                            "{\"loanId\":%d,\"newState\":\"%s\",\"email\":\"%s\"}",
+                            updated.getId(),
+                            updated.getState().getName(),
+                            updated.getEmail()
+                    );
+                    sqsTemplate.send("update_request", message);
+                    if ("accepted".equalsIgnoreCase(updated.getState().getName())) {
+                        sqsTemplate.send("accepted_loans", message);
+                    }
+                })
                 .doOnError(error -> log.error("Error al actualizar préstamo", error));
     }
+
 
     @Override
     public Mono<CalcularCapacidadResponse> calcularEndeudamiento(Long id, CalcularCapacidadRequest.UserDTO userDTO) {
