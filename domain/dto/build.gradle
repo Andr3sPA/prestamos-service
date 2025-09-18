@@ -1,7 +1,18 @@
+configurations.all {
+    resolutionStrategy {
+        force 'org.junit.platform:junit-platform-engine:1.12.2'
+        force 'org.junit.platform:junit-platform-launcher:1.12.2'
+        force 'org.junit.jupiter:junit-jupiter:5.12.2'
+    }
+}
 apply plugin: 'java'
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.2'
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
     implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
     implementation 'org.glassfish:jakarta.el:4.0.2'

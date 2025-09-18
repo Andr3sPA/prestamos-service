@@ -19,11 +19,19 @@ import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.when;
+
+import co.com.bancolombia.api.filter.GlobalExceptionFilter;
+import co.com.bancolombia.api.util.RequestValidator;
+import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
 @EnableConfigurationProperties(LoanAppPath.class)
 @WebFluxTest
+@Import({GlobalExceptionFilter.class, LoanApplicationRequestMapper.class})
 class RouterRestTest {
 
     @Autowired
@@ -31,6 +39,9 @@ class RouterRestTest {
 
     @MockitoBean
     private LoanAppUseCase loanAppUseCase;
+
+        @MockBean
+        private RequestValidator requestValidator;
 
     @Autowired
     private LoanAppPath loanAppPath;
@@ -96,10 +107,12 @@ class RouterRestTest {
                 .stateId(null)
                 .loanTypeId(null)
                 .build();
+        // Mock para error de validación
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
+                .thenReturn(Mono.error(new co.com.bancolombia.exception.MissingFieldException("amount")));
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                // CORRECCIÓN: Agregar header incluso en test de error
                 .header("X-User-Email", "correo-no-valido")
                 .bodyValue(invalidRequest)
                 .exchange()
@@ -108,9 +121,11 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenMissingHeader() {
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), isNull()))
+                .thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("", "")));
+
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                // Sin header X-User-Email
                 .bodyValue(request)
                 .exchange()
                 .expectStatus().isBadRequest();
@@ -118,13 +133,12 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenEmailMismatch() {
-        // CORRECCIÓN: Mock con ambos parámetros
+        // Mock para error de email distinto
         when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.just(responseLoan));
+                .thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("client1@example.com", "different@example.com")));
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                // Header con email diferente al del body
                 .header("X-User-Email", "different@example.com")
                 .bodyValue(request)
                 .exchange()

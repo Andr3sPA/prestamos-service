@@ -15,8 +15,8 @@ import java.math.BigDecimal;
 public class LoanApplicationRequest {
 
     @NotNull(message = "El monto es obligatorio")
-    @DecimalMin(value = "0.0", inclusive = true, message = "El salario base debe ser mayor o igual a 0")
-    @DecimalMax(value = "15000000.0", inclusive = true, message = "El salario base no puede superar 15,000,000")
+    @DecimalMin(value = "0.0", inclusive = true, message = "El monto debe ser mayor o igual a 0")
+    @DecimalMax(value = "15000000.0", inclusive = true, message = "El monto no puede superar 15,000,000")
     @Positive(message = "El monto debe ser positivo")
     private BigDecimal amount;
 

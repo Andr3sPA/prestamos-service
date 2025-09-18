@@ -12,11 +12,15 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import java.util.Collections;
+import co.com.bancolombia.model.PageResponse;
+import co.com.bancolombia.model.LoanApplication;
 
 import static org.mockito.Mockito.when;
 
-@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, LoanAppPath.class})
 @WebFluxTest
+@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, LoanAppPath.class, co.com.bancolombia.api.filter.GlobalExceptionFilter.class})
 @Import({CorsConfig.class, SecurityHeadersConfig.class})
 @TestPropertySource(properties = {
         "routes.paths.loanApplication=/api/v1/solicitud",
@@ -27,13 +31,20 @@ class ConfigTest {
     @Autowired
     private WebTestClient webTestClient;
 
-    @MockitoBean
-    private LoanAppUseCase loanAppUseCase;
+        @org.springframework.boot.test.mock.mockito.MockBean
+        private LoanAppUseCase loanAppCase;
+
+        @org.springframework.boot.test.mock.mockito.MockBean
+        private co.com.bancolombia.api.util.RequestValidator requestValidator;
+
+    @org.springframework.boot.test.mock.mockito.MockBean
+    private co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper loanApplicationRequestMapper;
 
     @Test
     void corsConfigurationShouldAllowOrigins() {
-        // Mock para el endpoint GET (obtener loans)
-        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+        // Mock para cualquier parámetro usando Mockito
+        org.mockito.Mockito.when(loanAppCase.getLoanApps(org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt()))
+                .thenReturn(Mono.just(new PageResponse<>(Collections.emptyList(), 0, 0, 0)));
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
@@ -51,7 +62,8 @@ class ConfigTest {
 
     @Test
     void securityHeadersShouldBePresent() {
-        when(loanAppUseCase.getLoanApps()).thenReturn(Flux.empty());
+        org.mockito.Mockito.when(loanAppCase.getLoanApps(org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt()))
+                .thenReturn(Mono.just(new PageResponse<>(Collections.emptyList(), 0, 0, 0)));
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
