@@ -82,3 +82,6 @@ logging:
     org.springframework.r2dbc: WARN
     reactor: INFO
 
+api:
+  auth:
+    key: ${API_AUTH_KEY}

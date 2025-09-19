@@ -1,6 +1,7 @@
 package co.com.bancolombia.api;
 
 import co.com.bancolombia.api.filter.GlobalExceptionFilter;
+import co.com.bancolombia.api.filter.ApiKeyAuthFilter;
 import co.com.bancolombia.api.config.LoanAppPath;
 import co.com.bancolombia.model.LoanApplication;
 import co.com.bancolombia.dto.LoanApplicationRequest;
@@ -33,6 +34,7 @@ public class RouterRest {
 
     private final LoanAppPath loanAppPath;
     private final GlobalExceptionFilter globalExceptionFilter;
+    private final ApiKeyAuthFilter apiKeyAuthFilter;
     @Bean
     @RouterOperations({
             @RouterOperation(
@@ -69,7 +71,7 @@ public class RouterRest {
                 .andRoute(GET(loanAppPath.getLoanApplication()), handlerLoanApp::getLoanApps)
                 .andRoute(PUT(loanAppPath.getLoanApplication()), handlerLoanApp::updateLoanApp)
                 .andRoute(POST(loanAppPath.getLoanCapacity()), handlerLoanApp::calcularCapacidad)
+                .filter(apiKeyAuthFilter)
                 .filter(globalExceptionFilter);
     }
 }
-
