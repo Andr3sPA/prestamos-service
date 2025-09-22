@@ -21,10 +21,11 @@ import static org.mockito.Mockito.when;
 
 @WebFluxTest
 @ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, LoanAppPath.class, co.com.bancolombia.api.filter.GlobalExceptionFilter.class})
-@Import({CorsConfig.class, SecurityHeadersConfig.class})
+@Import({CorsConfig.class, SecurityHeadersConfig.class, co.com.bancolombia.api.filter.ApiKeyAuthFilter.class})
 @TestPropertySource(properties = {
         "routes.paths.loanApplication=/api/v1/solicitud",
-        "cors.allowed-origins=*"
+        "cors.allowed-origins=*",
+        "api.auth.key=test-key"
 })
 class ConfigTest {
 
@@ -48,6 +49,7 @@ class ConfigTest {
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
+                .header("X-API-KEY", "test-key")
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().valueEquals("Content-Security-Policy",
@@ -67,6 +69,7 @@ class ConfigTest {
 
         webTestClient.get()
                 .uri("/api/v1/solicitud")
+                .header("X-API-KEY", "test-key")
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().exists("Content-Security-Policy")

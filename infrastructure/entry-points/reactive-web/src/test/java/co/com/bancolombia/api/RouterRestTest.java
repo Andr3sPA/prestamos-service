@@ -28,20 +28,30 @@ import co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 
-@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class})
+
+@ContextConfiguration(classes = {RouterRest.class, HandlerLoanApp.class, co.com.bancolombia.api.filter.GlobalExceptionFilter.class})
+@org.springframework.test.context.TestPropertySource(properties = {"api.auth.key=test-key"})
 @EnableConfigurationProperties(LoanAppPath.class)
 @WebFluxTest
-@Import({GlobalExceptionFilter.class, LoanApplicationRequestMapper.class})
+@Import({GlobalExceptionFilter.class, co.com.bancolombia.api.filter.ApiKeyAuthFilter.class})
 class RouterRestTest {
+
+        @org.springframework.boot.test.mock.mockito.MockBean
+        private co.com.bancolombia.api.filter.ApiKeyAuthFilter apiKeyAuthFilter;
 
     @Autowired
     private WebTestClient webTestClient;
 
-    @MockitoBean
-    private LoanAppUseCase loanAppUseCase;
+                // Eliminado setUp global, se configura el mock en cada test
+
+        @MockBean
+        private LoanAppUseCase loanAppUseCase;
 
         @MockBean
         private RequestValidator requestValidator;
+
+        @MockBean
+        private co.com.bancolombia.r2dbc.mapper.LoanApplicationRequestMapper loanApplicationRequestMapper;
 
     @Autowired
     private LoanAppPath loanAppPath;
@@ -76,14 +86,15 @@ class RouterRestTest {
 
     @Test
     void shouldCreateLoanApplication() {
-        // CORRECCIÓN: Mock con ambos parámetros
-        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.just(responseLoan));
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+        org.mockito.Mockito.doNothing().when(requestValidator).validate(any(), any());
+        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString())).thenReturn(Mono.just(responseLoan));
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                // CORRECCIÓN: Agregar el header requerido
                 .header("X-User-Email", "client1@example.com")
+                .header("X-API-KEY", "test-key")
                 .bodyValue(request)
                 .exchange()
                 .expectStatus().isOk()
@@ -100,6 +111,8 @@ class RouterRestTest {
 
     @Test
     void shouldReturnBadRequestWhenInvalidRequest() {
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
         LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
                 .amount(BigDecimal.valueOf(-1000))
                 .term(0)
@@ -107,41 +120,45 @@ class RouterRestTest {
                 .stateId(null)
                 .loanTypeId(null)
                 .build();
-        // Mock para error de validación
-        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.error(new co.com.bancolombia.exception.MissingFieldException("amount")));
+        org.mockito.Mockito.doThrow(new co.com.bancolombia.exception.MissingFieldException("amount")).when(requestValidator).validate(any(), any());
 
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
                 .header("X-User-Email", "correo-no-valido")
+                .header("X-API-KEY", "test-key")
                 .bodyValue(invalidRequest)
                 .exchange()
                 .expectStatus().isBadRequest();
     }
 
     @Test
-    void shouldReturnBadRequestWhenMissingHeader() {
-        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), isNull()))
-                .thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("", "")));
+        void shouldReturnBadRequestWhenMissingHeader() {
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+                when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+                org.mockito.Mockito.doNothing().when(requestValidator).validate(any(), any());
+                when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), isNull())).thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("", "")));
 
-        webTestClient.post()
-                .uri(loanAppPath.getLoanApplication())
-                .bodyValue(request)
-                .exchange()
-                .expectStatus().isBadRequest();
+                webTestClient.post()
+                                .uri(loanAppPath.getLoanApplication())
+                                .header("X-API-KEY", "test-key")
+                                .bodyValue(request)
+                                .exchange()
+                                .expectStatus().isBadRequest();
     }
 
     @Test
-    void shouldReturnBadRequestWhenEmailMismatch() {
-        // Mock para error de email distinto
-        when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString()))
-                .thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("client1@example.com", "different@example.com")));
+        void shouldReturnBadRequestWhenEmailMismatch() {
+        when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+                when(loanApplicationRequestMapper.toModel(any(LoanApplicationRequest.class))).thenReturn(responseLoan);
+                org.mockito.Mockito.doNothing().when(requestValidator).validate(any(), any());
+                when(loanAppUseCase.saveLoanApp(any(LoanApplication.class), anyString())).thenReturn(Mono.error(new co.com.bancolombia.exception.EmailMismatchException("client1@example.com", "different@example.com")));
 
-        webTestClient.post()
-                .uri(loanAppPath.getLoanApplication())
-                .header("X-User-Email", "different@example.com")
-                .bodyValue(request)
-                .exchange()
-                .expectStatus().isBadRequest();
+                webTestClient.post()
+                                .uri(loanAppPath.getLoanApplication())
+                                .header("X-User-Email", "different@example.com")
+                                .header("X-API-KEY", "test-key")
+                                .bodyValue(request)
+                                .exchange()
+                                .expectStatus().isBadRequest();
     }
 }
