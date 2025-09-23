@@ -15,7 +15,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import co.com.bancolombia.api.util.RequestValidator;
-
 import java.util.Optional;
 
 @Component
@@ -39,6 +38,9 @@ public class HandlerLoanApp {
 
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {
         String email = serverRequest.headers().firstHeader("X-User-Email");
+        if (email == null || email.isEmpty()) {
+            return Mono.error(new co.com.bancolombia.exception.MissingHeaderException("X-User-Email"));
+        }
         return serverRequest.bodyToMono(LoanApplicationRequest.class)
                 .flatMap(dto->{
                     requestValidator.validate(dto,LoanApplicationRequest.class);
