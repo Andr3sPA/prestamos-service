@@ -1,5 +1,5 @@
 package co.com.bancolombia.api;
-
+import co.com.bancolombia.exception.MissingHeaderException;
 import co.com.bancolombia.dto.CalculateCapacityReq;
 import co.com.bancolombia.dto.LoanApplicationRequest;
 import co.com.bancolombia.dto.UpdateLoanAppReq;
@@ -39,7 +39,7 @@ public class HandlerLoanApp {
     public Mono<ServerResponse> saveLoanApp(ServerRequest serverRequest) {
         String email = serverRequest.headers().firstHeader("X-User-Email");
         if (email == null || email.isEmpty()) {
-            return Mono.error(new co.com.bancolombia.exception.MissingHeaderException("X-User-Email"));
+            return Mono.error(new MissingHeaderException("X-User-Email"));
         }
         return serverRequest.bodyToMono(LoanApplicationRequest.class)
                 .flatMap(dto->{
