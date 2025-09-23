@@ -1,4 +1,3 @@
-
 package co.com.bancolombia.api;
 
 
@@ -117,18 +116,16 @@ class RouterRestTest {
         }
 
     @Test
-    void shouldReturnBadRequestWhenInvalidRequest() {
-        LoanApplicationRequest invalidRequest = LoanApplicationRequest.builder()
-                .amount(BigDecimal.valueOf(-1000))
-                .term(0)
-                .email("correo-no-valido")
-                .stateId(null)
-                .loanTypeId(null)
+    void shouldReturnBadRequestWhenEmailMismatch() {
+        LoanApplicationRequest request = LoanApplicationRequest.builder()
+                .email("user@example.com")
+                .amount(BigDecimal.valueOf(10000))
+                .termMonths(12)
                 .build();
         when(handlerLoanApp.saveLoanApp(any())).thenReturn(Mono.just(ServerResponse.badRequest().bodyValue("bad request").block()));
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                .header("X-User-Email", "correo-no-valido")
+                .header("X-User-Email", "different@example.com")
                 .header("X-API-KEY", "test-key")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(invalidRequest)
