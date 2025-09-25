@@ -69,18 +69,21 @@ class RouterRestTest {
             .loanType(LoanType.builder().id(1L).name("PERSONAL").minimumAmount(BigDecimal.valueOf(1000)).maximumAmount(BigDecimal.valueOf(10000)).interestRate(BigDecimal.valueOf(0.05)).automaticValidation(true).build())
             .build();
 
-        @Test
-        void shouldGetLoanApps() {
-        when(handlerLoanApp.getLoanApps(any())).thenReturn(Mono.just(ServerResponse.ok().bodyValue(responseLoan).block()));
-                webTestClient.get()
-                                .uri(loanAppPath.getLoanApplication() + "?page=0&size=1")
-                                .header("X-API-KEY", "test-key")
-                                .accept(MediaType.APPLICATION_JSON)
-                                .exchange()
-                                .expectStatus().isOk()
-                                .expectBody(LoanApplication.class)
-                                .value(resp -> org.assertj.core.api.Assertions.assertThat(resp.getId()).isEqualTo(responseLoan.getId()));
-        }
+
+    @Test
+    void shouldGetLoanApps() {
+        when(handlerLoanApp.getLoanApps(any())).thenReturn(
+                ServerResponse.ok().bodyValue(responseLoan)
+        );
+        webTestClient.get()
+                .uri(loanAppPath.getLoanApplication() + "?page=0&size=1")
+                .header("X-API-KEY", "test-key")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(LoanApplication.class)
+                .value(resp -> org.assertj.core.api.Assertions.assertThat(resp.getId()).isEqualTo(responseLoan.getId()));
+    }
 
     @Test
     void shouldUpdateLoanApp() {
@@ -88,7 +91,9 @@ class RouterRestTest {
                 .id(1L)
                 .name(co.com.bancolombia.dto.LoanAppStatus.APPROVED)
                 .build();
-        when(handlerLoanApp.updateLoanApp(any())).thenReturn(Mono.just(ServerResponse.ok().bodyValue(responseLoan).block()));
+        when(handlerLoanApp.updateLoanApp(any())).thenReturn(
+                ServerResponse.ok().bodyValue(responseLoan)
+        );
         webTestClient.put()
                 .uri(loanAppPath.getLoanApplication())
                 .header("X-API-KEY", "test-key")
@@ -100,67 +105,103 @@ class RouterRestTest {
                 .value(resp -> org.assertj.core.api.Assertions.assertThat(resp.getId()).isEqualTo(responseLoan.getId()));
     }
 
+    @Test
+    void shouldCreateLoanApplication() {
+        when(handlerLoanApp.saveLoanApp(any())).thenReturn(
+                ServerResponse.ok().bodyValue(responseLoan)
+        );
+        webTestClient.post()
+                .uri(loanAppPath.getLoanApplication())
+                .header("X-User-Email", "client1@example.com")
+                .header("X-API-KEY", "test-key")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(request)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(LoanApplication.class)
+                .value(resp -> org.assertj.core.api.Assertions.assertThat(resp.getEmail()).isEqualTo("client1@example.com"));
+    }
+
+
+    @Test
+    void shouldReturnNotFoundForInvalidRoute() {
+        webTestClient.get()
+                .uri("/api/v1/invalid")
+                .header("X-API-KEY", "test-key")
+                .exchange()
+                .expectStatus().isNotFound();
+    }
+
         @Test
-        void shouldCreateLoanApplication() {
-        when(handlerLoanApp.saveLoanApp(any())).thenReturn(Mono.just(ServerResponse.ok().bodyValue(responseLoan).block()));
+        void shouldReturnInternalServerErrorForInvalidBody() {
+                String invalidJson = "{\"amount\": \"not-a-number\"}";
                 webTestClient.post()
                                 .uri(loanAppPath.getLoanApplication())
                                 .header("X-User-Email", "client1@example.com")
                                 .header("X-API-KEY", "test-key")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .bodyValue(request)
+                                .bodyValue(invalidJson)
                                 .exchange()
-                                .expectStatus().isOk()
-                                .expectBody(LoanApplication.class)
-                                .value(resp -> org.assertj.core.api.Assertions.assertThat(resp.getEmail()).isEqualTo("client1@example.com"));
+                                .expectStatus().is5xxServerError();
         }
 
     @Test
-    void shouldReturnBadRequestWhenEmailMismatch() {
-        LoanApplicationRequest request = LoanApplicationRequest.builder()
-                .email("user@example.com")
-                .amount(BigDecimal.valueOf(10000))
-                .termMonths(12)
-                .build();
-        when(handlerLoanApp.saveLoanApp(any())).thenReturn(Mono.just(ServerResponse.badRequest().bodyValue("bad request").block()));
+    void shouldReturnInternalServerError() {
+        when(handlerLoanApp.saveLoanApp(any())).thenThrow(new RuntimeException("internal error"));
         webTestClient.post()
                 .uri(loanAppPath.getLoanApplication())
-                .header("X-User-Email", "different@example.com")
+                .header("X-User-Email", "client1@example.com")
                 .header("X-API-KEY", "test-key")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(invalidRequest)
+                .bodyValue(request)
                 .exchange()
-                .expectStatus().isBadRequest()
-                .expectBody(String.class)
-                .value(body -> org.assertj.core.api.Assertions.assertThat(body).contains("bad request"));
+                .expectStatus().is5xxServerError();
     }
 
         @Test
-        void shouldReturnBadRequestWhenMissingHeader() {
-        when(handlerLoanApp.saveLoanApp(any())).thenReturn(Mono.just(ServerResponse.badRequest().bodyValue("bad request").block()));
+        void shouldReturnUnauthorizedWhenHeaderIsInvalid() {
                 webTestClient.post()
                                 .uri(loanAppPath.getLoanApplication())
-                                .header("X-API-KEY", "test-key")
+                                .header("X-User-Email", "client1@example.com")
+                                .header("X-API-KEY", "invalid-key")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .bodyValue(request)
                                 .exchange()
-                                .expectStatus().isBadRequest()
-                                .expectBody(String.class)
-                                .value(body -> org.assertj.core.api.Assertions.assertThat(body).contains("bad request"));
+                                .expectStatus().isUnauthorized();
+        }
+
+    // Eliminado test duplicado y variable no definida
+
+        @Test
+        void shouldReturnBadRequestWhenMissingHeader() {
+                when(handlerLoanApp.saveLoanApp(any())).thenReturn(
+                        ServerResponse.badRequest().bodyValue("bad request")
+                );
+                webTestClient.post()
+                        .uri(loanAppPath.getLoanApplication())
+                        .header("X-API-KEY", "test-key")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(request)
+                        .exchange()
+                        .expectStatus().isBadRequest()
+                        .expectBody(String.class)
+                        .value(body -> org.assertj.core.api.Assertions.assertThat(body).contains("bad request"));
         }
 
         @Test
         void shouldReturnBadRequestWhenEmailMismatch() {
-        when(handlerLoanApp.saveLoanApp(any())).thenReturn(Mono.just(ServerResponse.badRequest().bodyValue("bad request").block()));
+                when(handlerLoanApp.saveLoanApp(any())).thenReturn(
+                        ServerResponse.badRequest().bodyValue("bad request")
+                );
                 webTestClient.post()
-                                .uri(loanAppPath.getLoanApplication())
-                                .header("X-User-Email", "different@example.com")
-                                .header("X-API-KEY", "test-key")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .bodyValue(request)
-                                .exchange()
-                                .expectStatus().isBadRequest()
-                                .expectBody(String.class)
-                                .value(body -> org.assertj.core.api.Assertions.assertThat(body).contains("bad request"));
+                        .uri(loanAppPath.getLoanApplication())
+                        .header("X-User-Email", "different@example.com")
+                        .header("X-API-KEY", "test-key")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(request)
+                        .exchange()
+                        .expectStatus().isBadRequest()
+                        .expectBody(String.class)
+                        .value(body -> org.assertj.core.api.Assertions.assertThat(body).contains("bad request"));
         }
 }
